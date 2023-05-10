@@ -10,6 +10,7 @@ import Ordered from "./pages/Ordered";
 import Products from "./pages/Products";
 import ServiceRequirements from "./pages/Service-requirements";
 import SingleProduct from "./pages/Single-product";
+import Login from "./pages/Register";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           />
           <Route element={<Basket/>} path="/basket"/>
           <Route element={<SingleProduct />} path="/single-product/:id" />
+          <Route element={<Login/>} path="/login"/>
           <Route element={<Error />} path="*" />
         </Routes>
       </BrowserRouter>
