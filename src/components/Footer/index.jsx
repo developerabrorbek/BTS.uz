@@ -8,8 +8,9 @@ const Footer = () => {
         <div className="footer__inner bg-white rounded-t-[30px] px-7 py-8">
           <ul className="footer-items grid md:grid-cols-4  items-center  md:items-start justify-center md:justify-between gap-y-6 md:gap-x-4">
             <li className="footer-item">
-              <Link to="/" className="flex justify-center md:justify-start">
-                <img src={Logo} alt="Site logo" />
+              <Link to="/" className="flex justify-center md:justify-start leading-loose text-3xl">
+                BTService
+                {/* <img src={Logo} alt="Site logo" /> */}
               </Link>
             </li>
             <li className="footer-item flex flex-col gap-y-2 items-center md:items-start">
