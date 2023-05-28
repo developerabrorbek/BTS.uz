@@ -1,4 +1,3 @@
-import "./index.scss";
 
 import HeroImage from "../../assets/hero-example.png";
 const Hero = () => {
@@ -48,21 +47,21 @@ const Hero = () => {
 				<div className="banner">
 					<div className="hero__inner  w-[900px] h-[300px] bg-[#101010]  sm:px-8 pb-0 sm:py-5 lg:py-0 text-white shadow flex justify-between lg:justify-center lg:gap-x-16 items-center">
 						<h1 className="hero-title font-semibold text-[20px] sm:text-[24px] leading-6 sm:leading-8 w-2/3 md:w-1/2 lg:w-1/3 lg:text-center">
-							{/* Shopping products */}
+							Shopping products
 						</h1>
-						<img src="https:picsum.photos/id/287/900/500" alt="" className="absolute left-0" />
-						{/* <a href="#">
+						{/* <img src="https:picsum.photos/id/287/900/500" alt="" className="absolute left-0" /> */}
+						<a href="#">
 							<img
 								src={HeroImage}
 								alt="Image"
 								className="sm:w-[300px] sm:scale-125"
 							/>
-						</a> */}
+						</a>
 					</div>
-					<div className="half-banner   w-[900px] h-[300px] left-[506px] bg-slate-400 sm:px-8 pb-0 sm:py-5 lg:py-0 text-white shadow flex justify-between lg:justify-center lg:gap-x-16 items-center ">
+					{/* <div className="half-banner   w-[900px] h-[300px] left-[506px] bg-slate-400 sm:px-8 pb-0 sm:py-5 lg:py-0 text-white shadow flex justify-between lg:justify-center lg:gap-x-16 items-center ">
 						{/* <h1 className="hero-title font-semibold text-[20px] sm:text-[24px] leading-6 sm:leading-8 w-2/3 md:w-1/2 lg:w-1/3 lg:text-center">aaaaaaaaaaaaaaaaaa</h1> */}
-						<img src="https:picsum.photos/id/609/900/500" alt="" className="relative left-11" />	
-					</div>
+						{/* <img src="https:picsum.photos/id/609/900/500" alt="" className="" />	 */}
+					{/* </div> */}
 				</div>
        
 			</div>
