@@ -96,12 +96,6 @@ const SingleProduct = () => {
               </div>
 
               <div className="actions mt-6 flex flex-col gap-y-4">
-                <Link
-                  to="/ordering"
-                  className="bg-[#101010] block shadow rounded-[10px] text-white text-center py-[13px] w-[255px]"
-                >
-                  Buy!
-                </Link>
                 <button
                   onClick={() => addtoBasketHandler(product)}
                   className="bg-[#101010] flex items-center justify-center gap-x-4 shadow rounded-[10px] text-white text-center py-[13px] w-[255px]"
@@ -109,6 +103,12 @@ const SingleProduct = () => {
                   <img src={basket} alt="Basket" />
                   <p className="text text-white">Add to basket</p>
                 </button>
+                <Link
+                  to="/ordering"
+                  className="bg-[#101010] block shadow rounded-[10px] text-white text-center py-[13px] w-[255px]"
+                >
+                  Buy!
+                </Link>
               </div>
             </div>
           </div>

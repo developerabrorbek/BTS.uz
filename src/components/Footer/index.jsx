@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.svg";
+import Logo from "../../assets/logo.png";
 import LanguageIcon from "../../assets/language.svg";
 const Footer = () => {
   return (
-    <footer className="footer mt-8">
-      <div className="container mx-auto  max-w-[1110px]">
-        <div className="footer__inner bg-white rounded-t-[30px] px-7 py-8">
-          <ul className="footer-items grid md:grid-cols-4  items-center  md:items-start justify-center md:justify-between gap-y-6 md:gap-x-4">
+    <footer className="footer mt-8 ">
+      <div className="container mx-auto  max-w-[1380px]">
+        <div className="footer__inner bg-[#ffffff] rounded-t-[30px] px-7 py-8">
+          <ul className="footer-items flex md:grid-cols-4  items-center  md:items-start justify-center md:justify-between gap-y-6 md:gap-x-4">
             <li className="footer-item">
               <Link to="/" className="flex justify-center md:justify-start leading-loose text-3xl">
-                BTService
-                {/* <img src={Logo} alt="Site logo" /> */}
+                <img src={Logo} alt="Site logo"  width={110} height={110} />
               </Link>
+            </li>
+            <li className="footer-item flex flex-col gap-y-2 items-center md:items-start">
+              <Link to="/selected">Favorites</Link>
+              <Link to="/basket">Basket</Link>
+              <Link to="/contacts">Contact</Link>
             </li>
             <li className="footer-item flex flex-col gap-y-2 items-center md:items-start">
               <Link to="/selected">Favorites</Link>
@@ -26,10 +30,10 @@ const Footer = () => {
                 <img src={LanguageIcon} alt="Language icon" />
                 <ul className="languages-list flex gap-x-3">
                   <li className="language text-[15px] leading-6 text-[#101010] hover:text-[#FFA542]">
-                    Kaz
+                    Uzb
                   </li>
                   <li className="language text-[15px] leading-6 text-[#101010] hover:text-[#FFA542]">
-                    Uzb
+                    Eng
                   </li>
                   <li className="language text-[15px] leading-6 text-[#101010] hover:text-[#FFA542]">
                     Rus
@@ -37,7 +41,7 @@ const Footer = () => {
                 </ul>
               </div>
             </li>
-            <li className="footer-item flex items-center gap-x-3">
+            <li className="footer-item  flex items-center gap-x-3">
               <a href="#" className="text-[#101010] hover:text-[#1a1919]">
                 <svg
                   width="31"

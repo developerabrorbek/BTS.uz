@@ -1,6 +1,6 @@
-import SiteLogo from "../../assets/logo.svg";
+import SiteLogo from "../../assets/logo.png";
 import BasketImage from "../../assets/trash.svg";
-import MenuImage from "../../assets/burger.svg";
+// import MenuImage from "../../assets/burger.";
 import FavoriteImage from "../../assets/favorite.svg";
 import { useGetCategoriesQuery } from "../../redux/API.jsx";
 import { Link, useNavigate } from "react-router-dom";
@@ -88,9 +88,9 @@ const Header = () => {
 						</div>
 					</nav>
 					<div className="header-main">
-						<div className="header__inner flex gap-10 justify-between items-center mb-2">
-							<a href="/" className="site-logo leading-loose text-3xl">
-								BTService
+						<div className="header__inner flex gap-10 justify-between items-center mb-8 pb-5">
+							<a href="/" className="site-logo leading-loose text-3xl hover:tracking-wide hover:text-[#12ff]">
+								<img src={SiteLogo} alt="logo" className="logo" width={110} height={110}/>
 							</a>
 							<form action="#" className="flex items-center justify-center ">
 								<input type="search" name="search" placeholder="Search..." className=" min-w-[500px] py-2 px-3 bg-[#9ca5a822] rounded-xl focus: border focus:border-none" />

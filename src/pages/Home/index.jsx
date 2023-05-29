@@ -42,19 +42,19 @@ const Home = () => {
 							</li>
 							<li className="card2">
 								<a href="#" className="hover:opacity-80">
-                <img
-									src="https:picsum.photos/id/71/400/200"
-									alt="xizmat reklama banneri"
-								/>
-                </a>
+									<img
+										src="https:picsum.photos/id/71/400/200"
+										alt="xizmat reklama banneri"
+									/>
+								</a>
 							</li>
 							<li className="card3">
 								<a href="#" className="hover:opacity-80">
-                <img
-									src="https:picsum.photos/id/81/400/200"
-									alt="xizmat reklama banneri"
-								/>
-                </a>
+									<img
+										src="https:picsum.photos/id/81/400/200"
+										alt="xizmat reklama banneri"
+									/>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -62,8 +62,8 @@ const Home = () => {
 			</section>
 
 			<section className="all-products">
-				<div className="container mx-auto  px-6 max-w-[1110px]">
-					<h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
+				<div className="container mx-auto px-6 max-w-[1480px]">
+					<h2 className="text-[24px] font-semibold leading-6 text-[#838383] m-5 ">
 						All products
 					</h2>
 					<Swiper
@@ -76,7 +76,7 @@ const Home = () => {
 						{products &&
 							products.map((product) => {
 								return (
-									<SwiperSlide key={product.id} className="ms-0 w-[280px]">
+									<SwiperSlide key={product.id} className="ms-0 w-[330px]">
 										<SingleCard product={product} />
 									</SwiperSlide>
 								);
@@ -86,12 +86,12 @@ const Home = () => {
 			</section>
 
 			<section className="women-products mt-6">
-				<div className="container mx-auto px-6 max-w-[1110px]">
-					<h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
+				<div className="container mx-auto px-6 max-w-[1440px]">
+					<h2 className="text-[24px] font-semibold leading-6 text-[#838383] m-5">
 						Women's clothing
 					</h2>
 					<Swiper
-						className="cards flex items-center w-full"
+						className="cards flex items-center w-full gap-x-4"
 						modules={[Autoplay]}
 						autoplay={{ delay: 3000 }}
 						slidesPerView="auto"
@@ -100,7 +100,7 @@ const Home = () => {
 						{womenClothing &&
 							womenClothing.map((product) => {
 								return (
-									<SwiperSlide key={product.id} className="w-[320px]">
+									<SwiperSlide key={product.id} className="ms-0 w-[330px]">
 										<ProductCard product={product} />
 									</SwiperSlide>
 								);
@@ -110,7 +110,7 @@ const Home = () => {
 			</section>
 
 			<section className="women-products mt-6">
-				<div className="container mx-auto px-6 max-w-[1110px]">
+				<div className="container mx-auto px-6 max-w-[1440px]">
 					<h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
 						Men's clothing
 					</h2>
@@ -124,7 +124,7 @@ const Home = () => {
 						{menClothing &&
 							menClothing.map((product) => {
 								return (
-									<SwiperSlide key={product.id} className="w-[320px]">
+									<SwiperSlide key={product.id} className="w-[330px]">
 										<ProductCard product={product} />
 									</SwiperSlide>
 								);
