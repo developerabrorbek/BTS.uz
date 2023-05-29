@@ -1,17 +1,19 @@
 import BasketImage from "../../assets/trash.svg";
-import MenuImage from "../../assets/burger.svg";
+// import MenuImage from "../../assets/burger.svg";
 import FavoriteImage from "../../assets/favorite.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useGetCategoriesQuery } from "../../redux/API";
 
 const Header = () => {
+  const { data: categories } = useGetCategoriesQuery();
   const { basketCartTotal } = useSelector((res) => res.basket);
   const { favoriteCartTotal } = useSelector((res) => res.favorite);
 
   return (
     <>
-      <section className="top-header border-b-2 bg-white mx-auto">
-        <nav className="nav p-3">
+      <section className="header-top border-b-2 bg-white mx-auto">
+        <div className="py-2 px-3">
           <div className="nav__inner   border-b-slate-300 flex justify-between">
             <div className="left ">
               <form action="#" className=" flex gap-6">
@@ -37,16 +39,16 @@ const Header = () => {
               </a>
             </div>
           </div>
-        </nav>
+        </div>
       </section>
       <header className="header bg-white">
         <div className="container mx-auto px-5">
-          <div className="header py-1">
-            <div className="header__inner flex gap-10 justify-between items-center mb-2">
+          <div className="header py-2">
+            <div className="header__inner flex gap-10 justify-between items-center">
               <Link to="/" className="site-logo leading-loose text-3xl">
                 BTService
               </Link>
-              <form className="w-1/3">
+              <form className="w-3/5">
                 <label
                   htmlFor="default-search"
                   className="mb-2 text-sm font-medium text-gray-900 sr-only "
@@ -54,10 +56,10 @@ const Header = () => {
                   Search
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <button className="absolute inset-y-0 right-0 flex items-center rounded-r overflow-hidden px-3 bg-green-500 pointer-events-none">
                     <svg
                       aria-hidden="true"
-                      className="w-5 h-5 text-gray-500 "
+                      className="w-5 h-5 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -70,20 +72,14 @@ const Header = () => {
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                       ></path>
                     </svg>
-                  </div>
+                  </button>
                   <input
                     type="search"
                     id="default-search"
-                    className="block w-full focus:outline-none p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-                    placeholder="Search Mockups, Logos..."
+                    className="block w-full focus:outline-none px-4 py-3 pl-5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+                    placeholder="Search anything"
                     required
                   />
-                  <button
-                    type="submit"
-                    className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
-                  >
-                    Search
-                  </button>
                 </div>
               </form>
 
@@ -107,6 +103,25 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <nav className="nav py-2 border-t flex justify-center">
+          <ul className="nav-list flex gap-x-6 items-center">
+            {categories?.length &&
+              categories.map((category, index) => {
+                return (
+                  <li className="nav-list__item" key={index}>
+                    <Link
+                      to={`/products/${category}`}
+                      className="nav-list__item--link"
+                    >
+                      <p className="capitalize font-sans text-[#888787] ">
+                        {category}
+                      </p>
+                    </Link>
+                  </li>
+                );
+              })}
+          </ul>
+        </nav>
       </header>
     </>
   );
