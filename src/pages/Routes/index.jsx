@@ -13,6 +13,7 @@ import SingleProduct from "../Single-product";
 import Login from "../Register";
 import Signup from "../../components/Signup";
 import Forgot from "../../components/Emailcode";
+import Dashboard from "../Dashboard/Dashboard";
 
 const UserRoutes = () => {
 	return (
@@ -30,6 +31,7 @@ const UserRoutes = () => {
 				<Route element={<Login />} path="/login" />
 				<Route element={<Signup />} path="/register" />
 				<Route element={<Forgot />} path="/forgot" />
+				<Route element={<Dashboard/>} path="/dashboard"/>
 				<Route element={<Error />} path="*" />
 			</Routes>
 		</>

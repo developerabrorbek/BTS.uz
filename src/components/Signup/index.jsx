@@ -1,58 +1,178 @@
-const Signup = () => {
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useMemo, useState } from "react";
+import { useRegisterUserMutation } from "../../redux/API";
+import { useNavigate } from "react-router";
+// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-	function addUser(e){
-		e.preventDeafault()
-		fetch("http://localhost:8080/api/v1/auth/register", {
-			method: "POST",
-			accept: "/",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				firstname: "abdulaziz",
-				lastname: "berdiqulov",
-				middleName: "user",
-				birtDate: "20040321",
-				phoneNumber: "882368883",
-				username: "abdulaziz",
-				password: "0111"
-			})
-		}).then(res => res.json()).then(data => console.log(data))
-	}
-	// addUser()
+
+// TODO remove, this demo shouldn't need to reset the theme.
+
+const defaultTheme = createTheme();
+
+export default function SignUp() {
+const [message, setMessage] = useState({});
+const [promise, dataUser] = useRegisterUserMutation(message)
+const navigate = useNavigate();
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const data = new FormData(event.currentTarget);
+		setMessage({
+			phoneNumber: data.get("number"),
+			password: data.get("password"),
+      firstname: data.get("firstName"),
+      lastname: data.get("lastName"),
+      username: data.get("username"),
+      birtDate : data.get("birthDate")
+		});
+	};
+
+  useMemo(() => {
+		promise(message).then(({ data }) => {
+      console.log(data);
+			if (data?.body?.token) {
+				localStorage.setItem("token", JSON.stringify(data?.body?.token));
+        localStorage.setItem("user", JSON.stringify(data.body.user))
+        // if(data.body.user.roleEnum == "ADMIN" || data.body.user.roleEnum == "SUPER_ADMIN") navigate("/dashboard");
+        // else navigate('/user')
+			}
+		});
+	}, [message]);
 
 	return (
-		<>
-			<div className="sign-up">
-				<div className="container mx-auto w-[700px] py-24">
-					<div className="signin__inner">
-						<h1 className=" text-[32px]">Sign up</h1>
-						<form onSubmit={(e) => addUser(e)} className="mt-8 flex flex-col gap-8 items-start w-full">
-							<label htmlFor="name" className="text-green-400 w-full">
-								Username
-								<input type="text" id="name" placeholder="Enter your Username" className="mt-2 block w-full p-3 rounded-md focus:border-sky-600 focus:border border border-sky-600 " />
-							</label>
-							<label htmlFor="email" className="text-green-400 w-full">
-								Email
-								<input type="email" id="email" placeholder="Enter your Email" className="mt-2 block w-full p-3 rounded-md focus:border-sky-600 focus:border border border-sky-600 " />
-							</label>
-							<label htmlFor="password" className="text-green-400 w-full">
-								Password
-								<input type="password" id="password" placeholder="Enter your Password" className="mt-2 block w-full p-3 rounded-md focus:border-sky-600 focus:border border border-sky-600 " />
-							</label>
-							<button type="submit" className="p-3 bg-blue-600 rounded-md w-full text-white">Sign up</button>
-						</form>
-						<div className="another-way flex justify-between px-2 mt-5">
-
-							<a href="#" className="forgot account text-blue-900">
-								Forgot password?
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
+		<ThemeProvider theme={defaultTheme}>
+			<Container component="main" maxWidth="xs">
+				<CssBaseline />
+				<Box
+					sx={{
+						marginTop: 8,
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+					}}
+				>
+					<Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+						<LockOutlinedIcon />
+					</Avatar>
+					<Typography component="h1" variant="h5">
+						Sign up
+					</Typography>
+					<Box
+						component="form"
+						noValidate
+						onSubmit={handleSubmit}
+						sx={{ mt: 3 }}
+					>
+						<Grid container spacing={2}>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									autoComplete="given-name"
+									name="firstName"
+									required
+									fullWidth
+									id="firstName"
+									label="First Name"
+									autoFocus
+								/>
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									required
+									fullWidth
+									id="lastName"
+									label="Last Name"
+									name="lastName"
+									autoComplete="family-name"
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									fullWidth
+									id="username"
+									label="Username"
+									name="username"
+									autoComplete="Username"
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									fullWidth
+									id="birthDate"
+									label="Birth Date"
+									name="birthDate"
+									autoComplete="Birth-date"
+								/>
+								{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+									<DemoContainer components={["DatePicker"]}>
+										<DatePicker label="Basic date picker" />
+									</DemoContainer>
+								</LocalizationProvider> */}
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									fullWidth
+									id="number"
+									label="Phone number"
+									name="number"
+									autoComplete="Phone number"
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									required
+									fullWidth
+									name="password"
+									label="Password"
+									type="password"
+									id="password"
+									autoComplete="new-password"
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<FormControlLabel
+									control={
+										<Checkbox value="allowExtranumbers" color="primary" />
+									}
+									label="I want to receive inspiration, marketing promotions and updates via number."
+								/>
+							</Grid>
+						</Grid>
+						<Button
+							type="submit"
+							fullWidth
+							variant="contained"
+							sx={{ mt: 3, mb: 2 }}
+						>
+							Sign Up
+						</Button>
+						<Grid container justifyContent="flex-end">
+							<Grid item>
+								<Link href="/login" variant="body2">
+									Already have an account? Sign in
+								</Link>
+							</Grid>
+						</Grid>
+					</Box>
+				</Box>
+			</Container>
+		</ThemeProvider>
 	);
-};
-
-export default Signup;
+}

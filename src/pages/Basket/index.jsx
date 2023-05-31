@@ -6,6 +6,7 @@ import LocationImage from "../../assets/locaiton.svg";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import MapWrapper from "../../components/Map";
 
 
 const Basket = () => {
@@ -42,9 +43,13 @@ const Basket = () => {
               </h2>
               <p className="text font-semibold text-[15px] leading-[18px]">499 $</p>
               </div>
-              <img src={mapImage} alt="map-image" className="w-full" />
+              {/* <img src={mapImage} alt="map-image" className="w-full" /> */}
+              <div className="map-wrapper w-full overflow-hidden h-[300px] flex items-center justify-center">
+              <MapWrapper/>
+              </div>
               <div className="contact-map__body flex items-center gap-x-3 mt-4">
                 <img src={LocationImage} alt="Location image" />
+                
                 <div className="texts">
                   <h3 className="font-medium text-[15px] leading-[18px]">
                     Аксай-3а, 62ф, Алматы, Казахстан

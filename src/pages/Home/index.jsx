@@ -62,12 +62,12 @@ const Home = () => {
       </section>
 
       <section className="all-products">
-        <div className="container mx-auto  px-6 max-w-[1110px]">
+        <div className="container mx-auto  px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
             All products
           </h2>
           <Swiper
-            className="cards grid items-center w-full gap-x-4"
+            className="cards grid items-center justify-between w-full grid-cols-5"
             modules={[Autoplay]}
             autoplay={{ delay: 2000 }}
             slidesPerView="auto"
@@ -76,7 +76,7 @@ const Home = () => {
             {products &&
               products.map((product) => {
                 return (
-                  <SwiperSlide key={product.id} className="ms-0 w-[280px]">
+                  <SwiperSlide key={product.id} className="ms-0 w-[220px]">
                     <SingleCard product={product} />
                   </SwiperSlide>
                 );
@@ -86,7 +86,7 @@ const Home = () => {
       </section>
 
       <section className="women-products mt-6">
-        <div className="container mx-auto px-6 max-w-[1110px]">
+        <div className="container mx-auto px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
             Women's clothing
           </h2>
@@ -110,7 +110,7 @@ const Home = () => {
       </section>
 
       <section className="women-products mt-6">
-        <div className="container mx-auto px-6 max-w-[1110px]">
+        <div className="container mx-auto px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
             Men's clothing
           </h2>
@@ -124,7 +124,7 @@ const Home = () => {
             {menClothing &&
               menClothing.map((product) => {
                 return (
-                  <SwiperSlide key={product.id} className="w-[320px]">
+                  <SwiperSlide key={product.id} className="w-[260px]">
                     <ProductCard product={product} />
                   </SwiperSlide>
                 );
