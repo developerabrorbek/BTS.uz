@@ -1,14 +1,11 @@
-import * as React from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import * as React from "react";
 import BasketImage from "../../assets/trash.svg";
 // import MenuImage from "../../assets/burger.svg";
 import FavoriteImage from "../../assets/favorite.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useGetCategoriesQuery } from "../../redux/API";
-import "./main.css"
+import "./main.css";
 import Logo from "../../assets/logo.png";
 
 const Header = () => {
@@ -18,31 +15,23 @@ const Header = () => {
 
 	const [sticky, setSticky] = React.useState("");
 
-  React.useEffect(() => {
-    console.log("hello");
-    window.addEventListener("scroll", isSticky);
-    return () => {
-      window.removeEventListener("scroll", isSticky);
-    };
-  }, []);
+	React.useEffect(() => {
+		console.log("hello");
+		window.addEventListener("scroll", isSticky);
+		return () => {
+			window.removeEventListener("scroll", isSticky);
+		};
+	}, []);
 
-  const isSticky = () => {
-    /* Method that will fix header after a specific scrollable */
-    const scrollTop = window.scrollY;
-    const stickyClass = scrollTop >= 250 ? "is-sticky" : "";
-    setSticky(stickyClass);
-    console.log(stickyClass);
-  };
-
-  const classes = `header-section mb-4 bg-white mx-auto d-none d-xl-block ${sticky}`;
-
-
-
-	const [age, setAge] = React.useState("");
-
-	const handleChange = (event) => {
-		setAge(event.target.value);
+	const isSticky = () => {
+		/* Method that will fix header after a specific scrollable */
+		const scrollTop = window.scrollY;
+		const stickyClass = scrollTop >= 250 ? "is-sticky" : "";
+		setSticky(stickyClass);
+		console.log(stickyClass);
 	};
+
+	const classes = `header-section mb-4 bg-white mx-auto d-none d-xl-block ${sticky}`;
 
 	return (
 		<>
@@ -51,39 +40,41 @@ const Header = () => {
 					<div className="nav__inner  border-b-slate-300 flex items-center justify-between">
 						<div className="">
 							<form action="#" className=" flex gap-6">
-								<FormControl variant="standard" sx={{ mx: 1, minWidth: 50 }}>
-									<Select
-										labelId="demo-simple-select-standard-label"
-										id="demo-simple-select-standard"
-										value={age}
-										onChange={handleChange}
-										label="Age"
-									>
-										<MenuItem value={1}>Eng</MenuItem>
-										<MenuItem value={2}>Uzb</MenuItem>
-										<MenuItem value={3}>Ru</MenuItem>
-									</Select>
-								</FormControl>
+								{/* <label
+									htmlFor="countries"
+									className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+								>
+									Select an option
+								</label> */}
+								<select
+									id="countries"
+									className="bg-[#8f3985] border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2 py-0 "
+								>
+									<option selected>Uzb</option>
+									<option value="US">Rus</option>
+									<option value="CA">Eng</option>
+								</select>
 
-								<FormControl  variant="standard" sx={{ mx: 1, minWidth: 50 }}>
-									<Select
-										labelId="demo-simple-select-standard-label"
-										id="demo-simple-select-standard"
-										value={age}
-										onChange={handleChange}
-										label="Currency"
-									>
-										<MenuItem  value={1}>Uzs</MenuItem>
-										<MenuItem value={3}>Usd</MenuItem>
-									</Select>
-								</FormControl>
+								<select
+									id="countries"
+									className="bg-[#8f3985] border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2 py-0 "
+								>
+									<option selected>Uzs</option>
+									<option value="US">Usd</option>
+								</select>
 							</form>
 						</div>
 						<div className="right flex gap-6">
-							<Link to="/login" className="login text-[#fff] hover:text-green-500 ">
+							<Link
+								to="/login"
+								className="login text-[#fff] hover:text-green-500 "
+							>
 								Tizimga kirish
 							</Link>
-							<a to="/register" className="signup text-[#fff] hover:text-green-500">
+							<a
+								to="/register"
+								className="signup text-[#fff] hover:text-green-500"
+							>
 								Ro'yhatdan o'tish
 							</a>
 						</div>

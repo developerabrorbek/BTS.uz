@@ -38,7 +38,7 @@ const Footer = () => {
 								<img src={LanguageIcon} alt="Language icon" />
 								<ul className="languages-list flex gap-x-3">
 									<li className="language text-[15px] leading-6 text-[#ffffff] hover:text-[#FFA542]">
-										Kaz
+										Eng
 									</li>
 									<li className="language text-[15px] leading-6 text-[#ffffff] hover:text-[#FFA542]">
 										Uzb
