@@ -1,18 +1,8 @@
 import { Button } from "@mui/material";
 import BasicModal from "../Modal";
 import Admin from "./admin";
-
-// console.log(<BasicModal/>)
-  
-
-
-
-
-
-
 const Admins = () => {
 
-      
 	return (
 		<>
 			<section className="admins">

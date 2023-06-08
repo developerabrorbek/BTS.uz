@@ -100,7 +100,7 @@ const Home = () => {
             {womenClothing &&
               womenClothing.map((product) => {
                 return (
-                  <SwiperSlide key={product.id} className="w-[320px]">
+                  <SwiperSlide key={product.id} className="w-[260px]">
                     <ProductCard product={product} />
                   </SwiperSlide>
                 );

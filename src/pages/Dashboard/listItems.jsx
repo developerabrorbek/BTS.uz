@@ -12,52 +12,54 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import PersonIcon from '@mui/icons-material/Person';
 import LayersIcon from '@mui/icons-material/Layers';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+import { Link } from 'react-router-dom';
+
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <PersonIcon />
-      </ListItemIcon>
-      <ListItemText primary="My profile" />
-    </ListItemButton>
-    <ListItemButton>
+      <ListItemButton>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItemButton>
+      <ListItemButton href='/dashboard/profile'>
+        <ListItemIcon>
+          <PersonIcon />
+        </ListItemIcon>
+        <ListItemText primary="My profile" />
+      </ListItemButton>
+    <ListItemButton onClick={() => navigate('/dashboard/orders')}>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Orders" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => navigate('/dashboard/categories')}>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Categories" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => navigate('/dashboard/products')}>
       <ListItemIcon>
         <LocalMallIcon />
       </ListItemIcon>
       <ListItemText primary="Products" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => navigate('/dashboard/customers')}>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => navigate('/dashboard/reports')}>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => navigate('/dashboard/admins')}>
       <ListItemIcon>
         <AccessibilityNewIcon />
       </ListItemIcon>

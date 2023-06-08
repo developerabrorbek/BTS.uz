@@ -48,8 +48,7 @@ const navigate = useNavigate();
 			if (data?.body?.token) {
 				localStorage.setItem("token", JSON.stringify(data?.body?.token));
         localStorage.setItem("user", JSON.stringify(data.body.user))
-        // if(data.body.user.roleEnum == "ADMIN" || data.body.user.roleEnum == "SUPER_ADMIN") navigate("/dashboard");
-        // else navigate('/user')
+        localStorage.setItem("role", JSON.stringify(data?.body.roleEnum))
 			}
 		});
 	}, [message]);

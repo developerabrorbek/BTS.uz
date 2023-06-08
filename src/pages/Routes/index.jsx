@@ -1,4 +1,3 @@
-import { memo } from "react";
 import {  Route, Routes } from "react-router-dom";
 import Basket from "../Basket";
 import Contacts from "../Contacts";
@@ -14,6 +13,7 @@ import Login from "../Register";
 import Signup from "../../components/Signup";
 import Forgot from "../../components/Emailcode";
 import Dashboard from "../Dashboard/Dashboard";
+import Profile from "../Profile"
 
 const UserRoutes = () => {
 	return (
@@ -31,11 +31,23 @@ const UserRoutes = () => {
 				<Route element={<Login />} path="/login" />
 				<Route element={<Signup />} path="/register" />
 				<Route element={<Forgot />} path="/forgot" />
-				<Route element={<Dashboard/>} path="/dashboard"/>
+				<Route element={<Profile/>} path="/profile"/>
 				<Route element={<Error />} path="*" />
 			</Routes>
 		</>
 	);
 };
 
-export default memo(UserRoutes);
+export const AdminRoutes = () => {
+	return (
+		<>
+			<Routes>
+				<Route element={<Dashboard/>} path="/dashboard"/>
+				<Route element={<Profile/>} path="/profile"/>
+				<Route element={<Error />} path="*" />
+			</Routes>
+		</>
+	);
+};
+
+export default UserRoutes;

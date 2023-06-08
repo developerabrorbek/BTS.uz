@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 
 export function isAuth() {
-let token = localStorage.getItem("token");
-	if (token) return true;
-	else return false;
-}   
+  const navigate = useNavigate();
+  let token = localStorage.getItem("token");
+  let role = localStorage.getItem("role");
+  if (token && role) {
+    navigate("/profile");
+    return true;
+  } else return false;
+}
