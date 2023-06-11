@@ -13,21 +13,53 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Tooltip from "@mui/material/Tooltip";
 import { green } from "@mui/material/colors";
 import { IconButton } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import Title from "./Title";
+
+const style = {
+	position: "absolute",
+	top: "50%",
+	left: "50%",
+	transform: "translate(-50%, -50%)",
+	width: 400,
+	bgcolor: "background.paper",
+	border: "2px solid #000",
+	boxShadow: 24,
+	p: 4,
+};
+
+// export function BasicModal() {
+
+//   return (
+
+//   );
+// }
 
 // Generate Order Data
 function createData(
 	id,
 	date,
 	name,
-  number,
+	number,
 	shipTo,
 	paymentMethod,
 	status,
 	amount,
 	category,
 ) {
-	return { id, date, name,number, shipTo, paymentMethod, status, amount, category };
+	return {
+		id,
+		date,
+		name,
+		number,
+		shipTo,
+		paymentMethod,
+		status,
+		amount,
+		category,
+	};
 }
 
 const users = [
@@ -35,10 +67,10 @@ const users = [
 		0,
 		"16 Mar, 2019",
 		"Elvis Presley",
-    "+998 93 612 12 12",
+		"+998 93 612 12 12",
 		"Tupelo, MS",
 		"VISA ⠀•••• 3719",
-		"status",
+		"delivered",
 		312.44,
 		"New",
 	),
@@ -46,10 +78,10 @@ const users = [
 		1,
 		"16 Mar, 2019",
 		"Paul McCartney",
-    "+998 93 612 12 12",
+		"+998 93 612 12 12",
 		"London, UK",
 		"VISA ⠀•••• 2574",
-		"status",
+		"rejected",
 		866.99,
 		"Done",
 	),
@@ -57,7 +89,7 @@ const users = [
 		2,
 		"16 Mar, 2019",
 		"Tom Scholz",
-    "+998 93 612 12 12",
+		"+998 93 612 12 12",
 		"Boston, MA",
 		"MC ⠀•••• 1253",
 		"status",
@@ -68,7 +100,7 @@ const users = [
 		3,
 		"16 Mar, 2019",
 		"Michael Jackson",
-    "+998 93 612 12 12",
+		"+998 93 612 12 12",
 		"Gary, IN",
 		"AMEX ⠀•••• 2000",
 		"status",
@@ -79,7 +111,7 @@ const users = [
 		4,
 		"15 Mar, 2019",
 		"Bruce Springsteen",
-    "+998 93 612 12 12",
+		"+998 93 612 12 12",
 		"Long Branch, NJ",
 		"VISA ⠀•••• 5919",
 		"status",
@@ -93,9 +125,13 @@ function preventDefault(event) {
 }
 
 export default function Orders() {
+
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+
 	const rows = [];
 	const [user, setUser] = useState("All");
-	// console.log(user);
 
 	function funOrder(user) {
 		if (user == "All") {
@@ -133,6 +169,24 @@ export default function Orders() {
 				</Button>
 			</Stack>
 
+			<div>
+				<Modal
+					open={open}
+					onClose={handleClose}
+					aria-labelledby="modal-modal-title"
+					aria-describedby="modal-modal-description"
+				>
+					<Box sx={style}>
+						<Typography id="modal-modal-title" variant="h6" component="h2">
+							Edit button
+						</Typography>
+						<Typography id="modal-modal-description" sx={{ mt: 2 }}>
+							Modal
+						</Typography>
+					</Box>
+				</Modal>
+			</div>
+
 			<Title>Recent Orders</Title>
 			<Table size="small">
 				<TableHead>
@@ -143,7 +197,7 @@ export default function Orders() {
 						<TableCell>Ship To</TableCell>
 						<TableCell>Payment Method</TableCell>
 						<TableCell>Status</TableCell>
-						<TableCell align="right">Sale Amount</TableCell>
+						<TableCell align="left">Sale Amount</TableCell>
 						<TableCell>Edit</TableCell>
 						<TableCell>Delete</TableCell>
 					</TableRow>
@@ -157,16 +211,16 @@ export default function Orders() {
 							<TableCell>{row.shipTo}</TableCell>
 							<TableCell>{row.paymentMethod}</TableCell>
 							<TableCell>{row.status}</TableCell>
-							<TableCell align="right">{`$${row.amount}`}</TableCell>
+							<TableCell align="left">{`$${row.amount}`}</TableCell>
 							<TableCell>
-								<Tooltip title="edit">
+								<Tooltip onClick={handleOpen} data-id={row.id} title="edit">
 									<IconButton>
 										<EditIcon sx={{ color: green[500] }} />
 									</IconButton>
 								</Tooltip>
 							</TableCell>
 							<TableCell>
-								<Tooltip title="delete">
+								<Tooltip data-id={row.id} title="delete">
 									<IconButton>
 										<DeleteForeverIcon color="error" />
 									</IconButton>
