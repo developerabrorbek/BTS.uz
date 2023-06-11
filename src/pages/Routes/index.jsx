@@ -32,6 +32,7 @@ const UserRoutes = () => {
 				<Route element={<Signup />} path="/register" />
 				<Route element={<Forgot />} path="/forgot" />
 				<Route element={<Profile/>} path="/profile"/>
+				<Route element={<Dashboard/>} path="/dashboard"/>
 				<Route element={<Error />} path="*" />
 			</Routes>
 		</>
