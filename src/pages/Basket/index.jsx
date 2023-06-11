@@ -51,7 +51,6 @@ const Basket = () => {
                     499 $
                   </p>
                 </div>
-                {/* <img src={mapImage} alt="map-image" className="w-full" /> */}
                 <div className="map-wrapper w-full overflow-hidden h-[450px] flex items-center justify-center" >
                   <MapWrapper />
                 </div>
@@ -60,10 +59,10 @@ const Basket = () => {
 
                   <div className="texts">
                     <h3 className="font-medium text-[15px] leading-[18px]">
-                      Аксай-3а, 62ф, Алматы, Казахстан
+                      Choose your location
                     </h3>
                     <p className="font-medium text-[13px] leading-4 text-[#838383]">
-                      3 этаж 35 кабинет
+                      Only in Tashkent
                     </p>
                   </div>
                 </div>
