@@ -13,21 +13,12 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useMemo, useState } from "react";
 import { useRegisterUserMutation } from "../../redux/API";
-import { useNavigate } from "react-router";
-// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
 const [message, setMessage] = useState({});
 const [promise, dataUser] = useRegisterUserMutation(message)
-const navigate = useNavigate();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -118,11 +109,6 @@ const navigate = useNavigate();
 									name="birthDate"
 									autoComplete="Birth-date"
 								/>
-								{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-									<DemoContainer components={["DatePicker"]}>
-										<DatePicker label="Basic date picker" />
-									</DemoContainer>
-								</LocalizationProvider> */}
 							</Grid>
 							<Grid item xs={12}>
 								<TextField

@@ -16,7 +16,6 @@ const Header = () => {
 	const [sticky, setSticky] = React.useState("");
 
 	React.useEffect(() => {
-		console.log("hello");
 		window.addEventListener("scroll", isSticky);
 		return () => {
 			window.removeEventListener("scroll", isSticky);
@@ -24,11 +23,9 @@ const Header = () => {
 	}, []);
 
 	const isSticky = () => {
-		/* Method that will fix header after a specific scrollable */
 		const scrollTop = window.scrollY;
 		const stickyClass = scrollTop >= 250 ? "is-sticky" : "";
 		setSticky(stickyClass);
-		console.log(stickyClass);
 	};
 
 	const classes = `header-section mb-4 bg-white mx-auto d-none d-xl-block ${sticky}`;
@@ -40,12 +37,6 @@ const Header = () => {
 					<div className="nav__inner  border-b-slate-300 flex items-center justify-between">
 						<div className="">
 							<form action="#" className=" flex gap-6">
-								{/* <label
-									htmlFor="countries"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-								>
-									Select an option
-								</label> */}
 								<select
 									id="countries"
 									className="bg-[#8f3985] border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2 py-0 "

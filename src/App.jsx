@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { BrowserRouter} from "react-router-dom";
 import Layout from "./pages/Layout";
 
@@ -13,4 +12,4 @@ const App = () => {
   );
 };
 
-export default memo(App);
+export default App;

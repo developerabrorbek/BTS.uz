@@ -39,8 +39,6 @@ export default function SignInSide() {
         localStorage.setItem("token", JSON.stringify(data?.body?.token));
         localStorage.setItem("user", JSON.stringify(data.body.user));
         localStorage.setItem("role", JSON.stringify(data?.body.roleEnum));
-        // if(data.body.user.roleEnum == "ADMIN" || data.body.user.roleEnum == "SUPER_ADMIN") navigate("/dashboard");
-        // else navigate('/user')
       }
     });
   }, [message]);
