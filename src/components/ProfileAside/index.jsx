@@ -60,7 +60,7 @@ const ProfileAside = () => {
               </NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/login" className="w-full">
+              <NavLink to="/" className="w-full">
                 <ListItemButton>
                   <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
                     <LogoutOutlinedIcon />
