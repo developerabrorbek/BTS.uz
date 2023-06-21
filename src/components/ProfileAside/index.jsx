@@ -4,12 +4,13 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import RoofingOutlinedIcon from '@mui/icons-material/RoofingOutlined';
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import RoofingOutlinedIcon from "@mui/icons-material/RoofingOutlined";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { Divider } from "@mui/material";
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
-import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
-import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
+import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
+import { NavLink } from "react-router-dom";
 
 const ProfileAside = () => {
   return (
@@ -18,45 +19,55 @@ const ProfileAside = () => {
         <nav aria-label="main mailbox folders">
           <List>
             <ListItem>
-              <ListItemButton>
-                <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
-                  <PersonOutlineRoundedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Mening ma'lumotlarim" />
-              </ListItemButton>
+              <NavLink to="/profile">
+                <ListItemButton>
+                  <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
+                    <PersonOutlineRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Mening ma'lumotlarim" />
+                </ListItemButton>
+              </NavLink>
             </ListItem>
             <Divider />
             <ListItem>
-              <ListItemButton>
-                <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
-                  <PaidOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Mening to'lovlarim" />
-              </ListItemButton>
+              <NavLink to="/profile/payments">
+                <ListItemButton>
+                  <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
+                    <PaidOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Mening to'lovlarim" />
+                </ListItemButton>
+              </NavLink>
             </ListItem>
             <ListItem>
-              <ListItemButton>
-                <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
-                  <LocalShippingOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Buyurtmalar" />
-              </ListItemButton>
+              <NavLink to="/profile/orders">
+                <ListItemButton>
+                  <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
+                    <LocalShippingOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Buyurtmalar" />
+                </ListItemButton>
+              </NavLink>
             </ListItem>
             <ListItem>
-              <ListItemButton>
-                <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
-                  <RoofingOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Foydalanilgan xizmatlar" />
-              </ListItemButton>
+              <NavLink to="/profile/used-services">
+                <ListItemButton>
+                  <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
+                    <RoofingOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Foydalanilgan xizmatlar" />
+                </ListItemButton>
+              </NavLink>
             </ListItem>
             <ListItem>
-              <ListItemButton>
-                <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
-                  <LogoutOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Chiqish" />
-              </ListItemButton>
+              <NavLink to="/login">
+                <ListItemButton>
+                  <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
+                    <LogoutOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Chiqish" />
+                </ListItemButton>
+              </NavLink>
             </ListItem>
           </List>
         </nav>
