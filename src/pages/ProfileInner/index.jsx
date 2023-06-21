@@ -1,9 +1,18 @@
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import ProfileAside from "../../components/ProfileAside";
 
 const ProfileInner = () => {
   return (
-    <div>
-      <h1>Salom profile inner</h1>
-    </div>
+    <>
+      <Header />
+      <div className="main bg-white mt-0">
+        <div className="aside flex justify-between">
+          <ProfileAside/>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 

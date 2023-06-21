@@ -19,7 +19,7 @@ const ProfileAside = () => {
         <nav aria-label="main mailbox folders">
           <List>
             <ListItem>
-              <NavLink to="/profile">
+              <NavLink to="/profile" className="w-full">
                 <ListItemButton>
                   <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
                     <PersonOutlineRoundedIcon />
@@ -30,7 +30,7 @@ const ProfileAside = () => {
             </ListItem>
             <Divider />
             <ListItem>
-              <NavLink to="/profile/payments">
+              <NavLink to="/profile/payments" className="w-full">
                 <ListItemButton>
                   <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
                     <PaidOutlinedIcon />
@@ -40,8 +40,8 @@ const ProfileAside = () => {
               </NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/profile/orders">
-                <ListItemButton>
+              <NavLink to="/profile/orders" className="w-full">
+                <ListItemButton >
                   <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
                     <LocalShippingOutlinedIcon />
                   </ListItemIcon>
@@ -50,7 +50,7 @@ const ProfileAside = () => {
               </NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/profile/used-services">
+              <NavLink to="/profile/used-services" className="w-full">
                 <ListItemButton>
                   <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
                     <RoofingOutlinedIcon />
@@ -60,7 +60,7 @@ const ProfileAside = () => {
               </NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/login">
+              <NavLink to="/login" className="w-full">
                 <ListItemButton>
                   <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12 py-4 mr-3">
                     <LogoutOutlinedIcon />

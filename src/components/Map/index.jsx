@@ -80,7 +80,7 @@ function MapWrapper() {
 		<MapContainer
 			style={{ height: "400px", width: "100%" }}
 			center={center}
-			zoom={6}
+			zoom={12}
 			scrollWheelZoom={false}
 		>
 			<TileLayer
