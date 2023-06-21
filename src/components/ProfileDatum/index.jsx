@@ -20,8 +20,8 @@ const Item = styled(Paper)(({ theme }) => ({
 const ProfileDatum = () => {
   return (
     <div>
-      <Box sx={{ flexGrow: 1, padding: "12px", width: "75vw" }}>
-        <Grid container spacing={2} sx={{ justifyContent: "space-around" }}>
+      <Box sx={{ flexGrow: 1, padding: "16px", width: "75vw" }}>
+        <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
           <Grid item xs={5}>
             <Item>
               <div className="personal-datum">
@@ -88,7 +88,8 @@ const ProfileDatum = () => {
               </div>
             </Item>
           </Grid>
-          <Grid item xs={11}>
+          <Grid item xs={12}>
+            <Item>
             <div className="personal-location">
               <div className="head flex items-center justify-between border-b pb-4 mb-4">
                 <div className="body flex items-center gap-x-4">
@@ -105,6 +106,7 @@ const ProfileDatum = () => {
                 <MapWrapper/>
               </div>
             </div>
+            </Item>
           </Grid>
         </Grid>
       </Box>
