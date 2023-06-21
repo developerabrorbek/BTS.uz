@@ -12,7 +12,6 @@ import SingleProduct from "../Single-product";
 import Login from "../Register";
 import Signup from "../../components/Signup";
 import Forgot from "../../components/Emailcode";
-import Dashboard from "../Dashboard/Dashboard";
 import Profile from "../Profile"
 
 const UserRoutes = () => {
@@ -32,23 +31,11 @@ const UserRoutes = () => {
 				<Route element={<Signup />} path="/register" />
 				<Route element={<Forgot />} path="/forgot" />
 				<Route element={<Profile/>} path="/profile"/>
-				<Route element={<Dashboard/>} path="/dashboard"/>
 				<Route element={<Error />} path="*" />
 			</Routes>
 		</>
 	);
 };
 
-export const AdminRoutes = () => {
-	return (
-		<>
-			<Routes>
-				<Route element={<Dashboard/>} path="/dashboard"/>
-				<Route element={<Profile/>} path="/profile"/>
-				<Route element={<Error />} path="*" />
-			</Routes>
-		</>
-	);
-};
 
 export default UserRoutes;

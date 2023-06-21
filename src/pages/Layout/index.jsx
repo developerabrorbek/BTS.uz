@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react";
-import UserRoutes, { AdminRoutes } from "../Routes";
-import { isAuth } from "../../Hooks/Auth";
+import UserRoutes from "../Routes";
 
 const Layout = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
 
-  useEffect(() => {
-    setIsAdmin(localStorage.getItem("role"));
-  }, [isAuth()]);
-
-  return <>{isAdmin == "ADMIN" ? <AdminRoutes /> : <UserRoutes />}</>;
+  return <><UserRoutes /></>;
 };
 
 export default Layout;
