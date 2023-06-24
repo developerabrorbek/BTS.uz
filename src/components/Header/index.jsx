@@ -2,6 +2,7 @@ import * as React from "react";
 import BasketImage from "../../assets/trash.svg";
 // import MenuImage from "../../assets/burger.svg";
 import FavoriteImage from "../../assets/favorite.svg";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useGetCategoriesQuery } from "../../redux/API";
@@ -113,7 +114,6 @@ const Header = () => {
 									/>
 								</div>
 							</form>
-
 							<ul className="links flex gap-x-12 items-center">
 								<Link
 									to="/selected"
@@ -129,6 +129,10 @@ const Header = () => {
 									<div className="amount  absolute -top-3 -right-4 z-10 bg-[#FFA542] rounded-full flex items-center justify-center  w-6">
 										<p className="text text-white ">{basketCartTotal}</p>
 									</div>
+								</Link>
+								<Link to="/profile" className="flex flex-col items-center">
+									<AccountCircleOutlinedIcon fontSize="large" color="secondary"/>
+									<p className="text-[#6c6969]">Profile</p>
 								</Link>
 							</ul>
 						</div>

@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    boxShadow: {
+      "custom" : "-1px 1px 7px 3px rgba(70,62,62,0.54)"
+    },
     extend: {
     }
   },
