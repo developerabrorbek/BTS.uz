@@ -63,12 +63,12 @@ const Header = () => {
 							>
 								Tizimga kirish
 							</Link>
-							<a
+							<Link
 								to="/register"
 								className="signup text-[#fff] hover:text-green-500"
 							>
-								Ro'yhatdan o'tish
-							</a>
+								Ro&apos;yhatdan o&apos;tish
+							</Link>
 						</div>
 					</div>
 				</div>

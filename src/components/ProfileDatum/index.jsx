@@ -18,6 +18,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const ProfileDatum = () => {
+
+  const user = JSON.parse(localStorage.getItem("user"))
+
   return (
     <div>
       <Box sx={{ flexGrow: 1, padding: "16px", width: "75vw" }}>
@@ -33,18 +36,18 @@ const ProfileDatum = () => {
                       sx={{ bgcolor: deepOrange[500] }}
                     />
                     <h3 className="font-bold text-[16px]">
-                      Shaxsiy ma'lumotlarim
+                      Shaxsiy ma&apos;lumotlarim
                     </h3>
                   </div>
-                  <Button variant="contained">O'zgartirish</Button>
+                  <Button variant="contained">O&apos;zgartirish</Button>
                 </div>
                 <div className="body p-3 ">
                   <h3 className="name text-left mb-6 font-semibold text-[15px] text-[#4b4a4a]">
-                    Abrorbek Abdulxamidov
+                    {user.firstname} {user.lastname}
                   </h3>
                   <div className="number flex items-center gap-x-3 mb-2">
                     <span className="tel">Telefon:</span>
-                    <p className="text-black">+99893 999 99 99</p>
+                    <p className="text-black">{user.phoneNumber}</p>
                   </div>
                   <div className="role flex items-center gap-x-3">
                     <span>Role: </span>

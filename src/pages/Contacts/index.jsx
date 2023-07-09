@@ -9,6 +9,7 @@ import Header from "../../components/Header";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
+import MapWrapper from "../../components/Map";
 const Contacts = () => {
   const [width, setWidth] = useState(window.innerWidth);
   window.addEventListener("resize", () => {
@@ -32,19 +33,20 @@ const Contacts = () => {
       <section className="contact">
         <div className="container mx-auto px-3 max-w-[1110px]">
           <div className="contact__inner grid lg:grid-cols-2 lg:w-[920px] lg:mx-auto lg:gap-x-12 lg:px-12">
-            <div className="contact-map max-w-[760px] p-4 bg-white shadow rounded-[30px]">
+            <div className="contact-map max-w-[960px] p-4 bg-white shadow rounded-[30px]">
               <h2 className="font-semibold text-[17px] leading-5 mb-5">
                 Our office
               </h2>
-              <img src={mapImage} alt="map-image" className="w-full" />
+              {/* <img src={mapImage} alt="map-image" className="w-full" /> */}
+              <MapWrapper/>
               <div className="contact-map__body flex items-center gap-x-3 mt-4">
                 <img src={LocationImage} alt="Location image" />
                 <div className="texts">
                   <h3 className="font-medium text-[15px] leading-[18px]">
-                    Аксай-3а, 62ф, Алматы, Казахстан
+                    Yunusobod, Toshkent
                   </h3>
                   <p className="font-medium text-[13px] leading-4 text-[#838383]">
-                    3 этаж 35 кабинет
+                    DTM ro'parasida
                   </p>
                 </div>
               </div>

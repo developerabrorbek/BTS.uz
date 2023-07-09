@@ -1,4 +1,5 @@
 import {  Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Basket from "../Basket";
 import Contacts from "../Contacts";
 import Error from "../Error";
@@ -35,6 +36,7 @@ const UserRoutes = () => {
 				<Route element={<ProfileInner/>} path="/profile/:path"/>
 				<Route element={<Error />} path="*" />
 			</Routes>
+			<ToastContainer/>
 		</>
 	);
 };

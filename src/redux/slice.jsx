@@ -2,8 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const basketState = {
   basketArr: JSON.parse(localStorage.getItem("basketArr")) || [],
-  basketCartTotal: JSON.parse(localStorage.getItem("basketTotalCount")) ||  0,
-  basketCartTotalAmount: JSON.parse(localStorage.getItem("basketTotalPrice")) ||  0,
+  basketCartTotal: JSON.parse(localStorage.getItem("basketTotalCount")) || 0,
+  basketCartTotalAmount:
+    JSON.parse(localStorage.getItem("basketTotalPrice")) || 0,
 };
 
 const favoriteState = {
@@ -29,9 +30,15 @@ export const basketSlice = createSlice({
         };
         state.basketArr.push(tempProduct);
         state.basketCartTotal += 1;
-        localStorage.setItem("basketTotalCount", JSON.stringify(state.basketCartTotal))
+        localStorage.setItem(
+          "basketTotalCount",
+          JSON.stringify(state.basketCartTotal)
+        );
         state.basketCartTotalAmount += action.payload.price;
-        localStorage.setItem("basketTotalPrice", JSON.stringify(state.basketCartTotalAmount) )
+        localStorage.setItem(
+          "basketTotalPrice",
+          JSON.stringify(state.basketCartTotalAmount)
+        );
         localStorage.setItem("basketArr", JSON.stringify(state.basketArr));
       }
     },
@@ -42,12 +49,19 @@ export const basketSlice = createSlice({
       if (itemIndex >= 0) {
         state.basketArr.splice(itemIndex, 1);
         state.basketCartTotal -= 1;
-        localStorage.setItem("basketTotalCount", JSON.stringify(state.basketCartTotal))
+        localStorage.setItem(
+          "basketTotalCount",
+          JSON.stringify(state.basketCartTotal)
+        );
         state.basketCartTotalAmount -= action.payload.price;
-        localStorage.setItem("basketTotalPrice", JSON.stringify(state.basketCartTotalAmount) )
+        localStorage.setItem(
+          "basketTotalPrice",
+          JSON.stringify(state.basketCartTotalAmount)
+        );
         localStorage.setItem("basketArr", JSON.stringify(state.basketArr));
       }
-      if(state.basketArr.length == 0) localStorage.setItem("basketTotalPrice", "0" )
+      if (state.basketArr.length == 0)
+        localStorage.setItem("basketTotalPrice", "0");
     },
     increaseExtraProduct: (state, action) => {
       const itemIndex = state.basketArr.findIndex(
@@ -56,7 +70,10 @@ export const basketSlice = createSlice({
       if (itemIndex >= 0) {
         state.basketArr[itemIndex].productCount += 1;
         state.basketCartTotalAmount += action.payload.price;
-        localStorage.setItem("basketTotalPrice", JSON.stringify(state.basketCartTotalAmount) )
+        localStorage.setItem(
+          "basketTotalPrice",
+          JSON.stringify(state.basketCartTotalAmount)
+        );
         localStorage.setItem("basketArr", JSON.stringify(state.basketArr));
       }
     },
@@ -67,7 +84,10 @@ export const basketSlice = createSlice({
       if (state.basketArr[itemIndex].productCount >= 2) {
         state.basketArr[itemIndex].productCount -= 1;
         state.basketCartTotalAmount -= action.payload.price;
-        localStorage.setItem("basketTotalPrice", JSON.stringify(state.basketCartTotalAmount) )
+        localStorage.setItem(
+          "basketTotalPrice",
+          JSON.stringify(state.basketCartTotalAmount)
+        );
         localStorage.setItem("basketArr", JSON.stringify(state.basketArr));
       }
     },
@@ -100,7 +120,10 @@ export const favoriteSlice = createSlice({
         };
         state.favoriteArr.push(tempProduct);
         state.favoriteCartTotal += 1;
-        localStorage.setItem("favoriteTotalCount", JSON.stringify(state.favoriteCartTotal))
+        localStorage.setItem(
+          "favoriteTotalCount",
+          JSON.stringify(state.favoriteCartTotal)
+        );
         localStorage.setItem("favoriteArr", JSON.stringify(state.favoriteArr));
       }
     },
@@ -111,7 +134,10 @@ export const favoriteSlice = createSlice({
       if (itemIndex >= 0) {
         state.favoriteArr.splice(itemIndex, 1);
         state.favoriteCartTotal -= 1;
-        localStorage.setItem("favoriteTotalCount", JSON.stringify(state.favoriteCartTotal))
+        localStorage.setItem(
+          "favoriteTotalCount",
+          JSON.stringify(state.favoriteCartTotal)
+        );
         localStorage.setItem("favoriteArr", JSON.stringify(state.favoriteArr));
       }
     },
