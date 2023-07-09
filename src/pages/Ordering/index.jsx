@@ -229,7 +229,7 @@ export default function Order() {
 			<Header />
 			<ThemeProvider theme={defaultTheme}>
 				<CssBaseline />
-				<Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+				<Container component="main" maxWidth="md" sx={{ mb: 4 }}>
 					<Paper
 						variant="outlined"
 						sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}

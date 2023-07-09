@@ -18,8 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const ProfileDatum = () => {
-
-  const user = JSON.parse(localStorage.getItem("user"))
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div>
@@ -93,22 +92,24 @@ const ProfileDatum = () => {
           </Grid>
           <Grid item xs={12}>
             <Item>
-            <div className="personal-location">
-              <div className="head flex items-center justify-between border-b pb-4 mb-4">
-                <div className="body flex items-center gap-x-4">
-                  <div className="card flex items-center justify-center p-2 border border-[#475569] rounded-full">
-                    <LocationOnOutlinedIcon />
+              <div className="personal-location">
+                <div className="head flex items-center justify-between border-b pb-4 mb-4">
+                  <div className="body flex items-center gap-x-4">
+                    <div className="card flex items-center justify-center p-2 border border-[#475569] rounded-full">
+                      <LocationOnOutlinedIcon />
+                    </div>
+                    <h3 className="font-bold text-[16px]">
+                      Mening joylashuvim
+                    </h3>
                   </div>
-                  <h3 className="font-bold text-[16px]">Mening joylashuvim</h3>
+                  <Button variant="contained" color="primary">
+                    Joyni o'zgartirish
+                  </Button>
                 </div>
-                <Button variant="contained" color="primary">
-                  Joyni o'zgartirish
-                </Button>
+                <div className="body p-3 ">
+                  <MapWrapper />
+                </div>
               </div>
-              <div className="body p-3 ">
-                <MapWrapper/>
-              </div>
-            </div>
             </Item>
           </Grid>
         </Grid>
