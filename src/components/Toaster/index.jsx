@@ -4,7 +4,6 @@ class Toaster {
   constructor() {}
 
   notify(status, message) {
-    console.log(status);
     if (status == 200) toast.success(message);
 
     if (status == 300) toast.info(message);

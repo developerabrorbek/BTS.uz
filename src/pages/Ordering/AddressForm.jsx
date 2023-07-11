@@ -17,14 +17,15 @@ export default function AddressForm() {
   const basketArr = JSON.parse(localStorage.getItem("basketArr"));
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.current);
+    const formData = new FormData(e.target);
 
     setData({
+      customerFullName:
+        formData.get("fullname") || user.firstname + user.lastname,
       phoneNumber: formData.get("phoneNumber") || user.phoneNumber,
-      customerFullName: formData.get("fullName"),
-      address: `${formData.get("address")} ${formData.get(
-        "region"
-      )} ${formData.get("city")}`,
+      // address: `${formData.get("address")} ${formData.get(
+      //   "region"
+      // )} ${formData.get("city")}`,
       latitude: location.lat,
       longitude: location.lng,
       productId: basketArr[0].id,
@@ -53,8 +54,8 @@ export default function AddressForm() {
           <Grid item xs={12} sm={6}>
             <TextField
               required
-              id="fullName"
-              name="fullName"
+              id="fullname"
+              name="fullname"
               label="Full name"
               fullWidth
               variant="standard"

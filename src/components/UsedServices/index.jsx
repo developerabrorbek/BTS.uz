@@ -39,8 +39,20 @@ const rows = [
 
 
 const UsedServices = () => {
+  const isExist = Boolean(localStorage.getItem("user").usedServices);
+
+  if (!isExist) {
+    return (
+      <>
+        <div className="services flex flex-col items-center justify-center gap-x-6  w-[75%]">
+          <h2 className="text-[24px] ">You don&apos;t have used services yet🤔😢</h2>
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="orders flex flex-col gap-y-6 pr-4 w-[75%] pt-4">
+    <div className="services flex flex-col gap-y-6 pr-4 w-[75%] pt-4">
       <h2 className="text-[32px] font-semibold">My used services</h2>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">

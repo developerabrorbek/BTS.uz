@@ -1,6 +1,6 @@
-import {  Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
-import { Navigation,Autoplay } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import { Link } from "react-router-dom";
 import Phone from "../../assets/phone.jpg";
 const Intro = () => {

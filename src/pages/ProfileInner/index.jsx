@@ -28,7 +28,7 @@ const ProfileInner = () => {
         <div className="aside ">
           <ProfileAside />
         </div>
-        <Body/>
+        <Body />
       </div>
       <Footer />
     </>

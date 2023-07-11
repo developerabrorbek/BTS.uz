@@ -34,12 +34,23 @@ function createData(name, calories, fat, carbs, protein) {
 const rows = [
   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-
 ];
 
 const Payments = () => {
+  const isExist = Boolean(localStorage.getItem("user").payments);
+
+  if (!isExist) {
+    return (
+      <>
+        <div className="payments flex flex-col items-center justify-center gap-x-6  w-[75%]">
+          <h2 className="text-[24px] ">You don&apos;t have payments yet🤔😢</h2>
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="orders flex flex-col gap-y-6 pr-4 w-[75%] pt-4">
+    <div className="payments flex flex-col gap-y-6 pr-4 w-[75%] pt-4">
       <h2 className="text-[32px] font-semibold">My payments</h2>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
