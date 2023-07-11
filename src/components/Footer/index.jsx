@@ -129,18 +129,18 @@ const Footer = () => {
 							</span>
 						</li>
 					</ul>
-					<div className=" flex items-center justify-between mt-4">
-						<p className="w-[60%] text-[#fff]">
-							2016-2023 © BTService.uz. Barcha huquqlar himoyalangan.
+					<div className=" flex flex-col items-center justify-between mt-4">
+						<p className="w-full text-center md:w-[60%] mb-3 text-[#fff]">
+							2022-2023 © BTService.uz. Barcha huquqlar himoyalangan.
 							Tovarlarning ko'rsatilgan qiymati va ularni sotib olish shartlari
 							joriy sanaga amal qiladi
 						</p>
-						<div className="flex items-center justify-between gap-1">
+						{/* <div className="flex items-center justify-between gap-1">
 							<img src="https://api.uznews.uz/storage/uploads/posts/images/46546/inner/ms2AYWYHNd.jpg"	width={80}	alt="uzcard"/>
 							<img src="https://cdn.shopify.com/s/files/1/0014/3186/3369/products/U-MD-60-2.jpg?v=1565353671"	width={80}	alt="uzcard"/>
 							<img src="https://darakchi.uz/storage/28/ea/18/203909/conversions/photo_2022-12-02_18-57-29-xl.jpg"	width={80}	alt="uzcard"/>
 							<img src="https://humocard.uz/upload/media/images/social.jpg"	width={80}	alt="uzcard"/>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>

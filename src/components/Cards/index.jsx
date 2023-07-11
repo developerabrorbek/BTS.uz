@@ -151,7 +151,7 @@ export const SingleProductCard = ({ product }) => {
       setColor("#d32f2f");
     } else setColor("#ef9a9a");
 
-    if(count == 2) setCount(0)
+    if (count == 2) setCount(0);
 
     if (color == "#d32f2f") {
       dispatch(addFavoriteProduct(product));

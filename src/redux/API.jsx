@@ -19,20 +19,6 @@ export const storeApi = createApi({
     getProductsByCategory: builder.query({
       query: (category) => `/products/category/${category}`,
     })
-    // loginUser: builder.mutation({
-    //   query: ({ ...data }) => ({
-    //     url: "/auth/login",
-    //     method: "POST",
-    //     body: data,
-    //   }),
-    // }),
-    // registerUser: builder.mutation({
-    //   query: ({ ...data }) => ({
-    //     url: "/auth/register",
-    //     method: "POST",
-    //     body: data,
-    //   }),
-    // }),
   }),
 });
 
@@ -41,6 +27,4 @@ export const {
   useGetSingleProductQuery,
   useGetCategoriesQuery,
   useGetProductsByCategoryQuery,
-  // useLoginUserMutation,
-  // useRegisterUserMutation,
 } = storeApi;
