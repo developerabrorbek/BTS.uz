@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../redux/API";
 import { useEffect, useState } from "react";
+import Banner from "../../assets/login-bg.jpg";
 // import axios from "../../configs/axios.config";
 
 const Categories = (props) => {
@@ -62,8 +63,8 @@ const Hero = () => {
 
   return (
     <section className="hero mt-6 mb-[35px] lg:mb-11  relative">
-      <div className="container relative mx-auto px-6 flex justify-between max-w-[1340px]">
-        <div className="categories bg-white rounded-md shadow-xl w-[300px] ">
+      <div className="container relative mx-auto px-6 flex justify-center lg:justify-between max-w-[1340px]">
+        <div className="categories hidden lg:block  bg-white rounded-md shadow-xl self-start w-[300px]">
           <h2 className="title text-lg p-3 border-b border-b-[#ccc]">
             Categories
           </h2>
@@ -95,7 +96,13 @@ const Hero = () => {
           ""
         )}
         <div className="banner">
-          <div className="hero__inner rounded-2xl  w-[900px] h-[300px] bg-[url('https://picsum.photos/id/439/900/300')] bg-center  sm:px-8 pb-0 sm:py-5 lg:py-0 text-white shadow flex justify-between lg:justify-center lg:gap-x-16 items-center"></div>
+          <div className="hero__inner ">
+            <img
+              src={Banner}
+              alt="banner"
+              className="rounded-xl lg:ml-4 h-[400px] lg:w-[940px]"
+            />
+          </div>
         </div>
       </div>
     </section>
