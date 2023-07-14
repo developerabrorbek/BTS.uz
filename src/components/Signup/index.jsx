@@ -47,7 +47,10 @@ export default function SignUp() {
           localStorage.setItem("token", JSON.stringify(data.data.body.token));
           localStorage.setItem("user", JSON.stringify(data.data.body.user));
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => {
+          console.log(err.message);
+          Toaster.notify(400, err.message);
+        });
     }
   }, [submit, message, navigate]);
 

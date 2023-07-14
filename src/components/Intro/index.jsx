@@ -16,10 +16,10 @@ const Intro = () => {
   return (
     <>
       <section className="hero mt-6 mb-[35px] lg:mb-11  relative">
-        <div className="container mx-auto  flex justify-between max-w-[1340px] ">
+        <div className="container mx-auto  flex justify-between overflow-hidden pr-6 max-w-[1340px] ">
           <div className="xizmatlar  relative ">
             <Swiper
-              className="cards flex items-center max-w-[1340px] py-2 ml-0 px-8"
+              className="cards flex items-center  py-2 ml-0 px-8 w-full overflow-hidden"
               modules={[Autoplay, Navigation]}
               autoplay={{ delay: 2000 }}
               navigation

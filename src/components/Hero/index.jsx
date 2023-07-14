@@ -100,7 +100,7 @@ const Hero = () => {
             <img
               src={Banner}
               alt="banner"
-              className="rounded-xl lg:ml-4 h-[400px] lg:w-[940px]"
+              className="rounded-xl  w-full lg:ml-4 md:h-[400px] lg:w-[940px]"
             />
           </div>
         </div>
