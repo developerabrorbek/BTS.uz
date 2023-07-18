@@ -96,7 +96,9 @@ const Hero = () => {
         ) : (
           ""
         )}
-        <HeroBanner />
+        <div className="hero-banner w-full lg:ml-4  lg:w-[940px] rounded-xl overflow-hidden">
+          <HeroBanner />
+        </div>
       </div>
     </section>
   );

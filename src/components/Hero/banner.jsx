@@ -22,7 +22,7 @@ const HeroBanner = () => {
               clickable: true,
             }}
             navigation={true}
-            className="mySwiper w-full lg:ml-4 md:h-[400px] lg:w-[940px] rounded-xl overflow-hidden"
+            className="mySwiper w-full md:h-[400px]"
           >
             {[1, 2, 3, 4].map((item) => {
               return (

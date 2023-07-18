@@ -1,12 +1,11 @@
-
 const SmallBanners = () => {
   return (
     <>
       <section className="small-banners">
         <div className="banner">
-          <div className="container mx-auto  py-4 px-6 max-w-[1340px] pr-0">
-            <ul className="cards grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:justify-between items-center">
-              <li className="card1">
+          <div className="container mx-auto py-4 px-6 max-w-[1340px] pr-0">
+            <ul className="cards grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-4 lg:justify-between items-center">
+              <li className="card1  w-full md:w-auto">
                 <a href="#" className="hover:opacity-80">
                   <img
                     src="https:picsum.photos/id/61/400/200"
@@ -14,7 +13,7 @@ const SmallBanners = () => {
                   />
                 </a>
               </li>
-              <li className="card2">
+              <li className="card2  w-full md:w-auto">
                 <a href="#" className="hover:opacity-80">
                   <img
                     src="https:picsum.photos/id/71/400/200"
@@ -22,7 +21,7 @@ const SmallBanners = () => {
                   />
                 </a>
               </li>
-              <li className="card3">
+              <li className="card3 w-full md:w-auto">
                 <a href="#" className="hover:opacity-80">
                   <img
                     src="https:picsum.photos/id/81/400/200"
