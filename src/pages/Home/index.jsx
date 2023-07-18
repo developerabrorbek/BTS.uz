@@ -12,6 +12,7 @@ import { Autoplay } from "swiper";
 import Error from "../Error";
 import Footer from "../../components/Footer";
 import Intro from "../../components/Intro";
+import SmallBanners from "../../components/SmallBanners";
 
 const Home = () => {
   const { data: products, isLoading, isError } = useGetProductsQuery();
@@ -28,38 +29,7 @@ const Home = () => {
       <Hero />
       <Intro />
 
-      <section className="xizmat-reklama">
-        <div className="reklama">
-          <div className="container mx-auto  px-6 max-w-[1380px]">
-            <ul className="cards flex items-center justify-around">
-              <li className="card1">
-                <a href="#" className="hover:opacity-80">
-                  <img
-                    src="https:picsum.photos/id/61/400/200"
-                    alt="xizmat reklama banneri"
-                  />
-                </a>
-              </li>
-              <li className="card2">
-                <a href="#" className="hover:opacity-80">
-                  <img
-                    src="https:picsum.photos/id/71/400/200"
-                    alt="xizmat reklama banneri"
-                  />
-                </a>
-              </li>
-              <li className="card3">
-                <a href="#" className="hover:opacity-80">
-                  <img
-                    src="https:picsum.photos/id/81/400/200"
-                    alt="xizmat reklama banneri"
-                  />
-                </a>               
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      <SmallBanners/>
 
       <section className="all-products mt-4">
         <div className="container mx-auto  px-6 max-w-[1340px]">
