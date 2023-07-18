@@ -29,7 +29,7 @@ const Home = () => {
       <Hero />
       <Intro />
 
-      <SmallBanners/>
+      <SmallBanners />
 
       <section className="all-products mt-4">
         <div className="container mx-auto  px-6 max-w-[1340px]">
@@ -58,7 +58,7 @@ const Home = () => {
       <section className="women-products mt-6">
         <div className="container mx-auto px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
-            Women's clothing
+            Women&apos;s clothing
           </h2>
           <Swiper
             className="cards flex items-center w-full"
@@ -82,7 +82,7 @@ const Home = () => {
       <section className="women-products mt-6">
         <div className="container mx-auto px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
-            Men's clothing
+            Men&apos;s clothing
           </h2>
           <Swiper
             className="cards flex items-center w-full"

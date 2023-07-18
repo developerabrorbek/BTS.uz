@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../redux/API";
 import { useEffect, useState } from "react";
-import Banner from "../../assets/login-bg.jpg";
+import HeroBanner from "./banner";
+
 // import axios from "../../configs/axios.config";
 
 const Categories = (props) => {
@@ -13,7 +14,7 @@ const Categories = (props) => {
   // });
   return (
     <>
-      <div className="category-wrapper rounded-xl overflow-hidden grid grid-cols-3 gap-x-11 p-8">
+      <div className="category-wrapper relative z-50 bg-white rounded-xl overflow-hidden grid grid-cols-3 gap-x-11 p-8">
         <div className="category-first inline-block ">
           <h2 className="font-semibold text-[18px] p-1 text-[#333] border-b">
             Category title
@@ -88,22 +89,14 @@ const Hero = () => {
           <div
             onMouseOver={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
-            className="list-aside absolute right-0 w-[75.8%] h-[100%] bg-white"
+            className="list-aside absolute right-0 w-[75.8%] h-[100%] bg-white z-50 rounded-xl  overflow-hidden rounded-tl-none"
           >
             <Categories id={id} />
           </div>
         ) : (
           ""
         )}
-        <div className="banner">
-          <div className="hero__inner ">
-            <img
-              src={Banner}
-              alt="banner"
-              className="rounded-xl  w-full lg:ml-4 md:h-[400px] lg:w-[940px]"
-            />
-          </div>
-        </div>
+        <HeroBanner />
       </div>
     </section>
   );
