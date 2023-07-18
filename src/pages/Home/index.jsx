@@ -54,14 +54,14 @@ const Home = () => {
                     src="https:picsum.photos/id/81/400/200"
                     alt="xizmat reklama banneri"
                   />
-                </a>
+                </a>               
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="all-products">
+      <section className="all-products mt-4">
         <div className="container mx-auto  px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
             All products

@@ -13,7 +13,7 @@ const Categories = (props) => {
   // });
   return (
     <>
-      <div className="category-wrapper rounded-2xl grid grid-cols-3 gap-x-11 p-8">
+      <div className="category-wrapper rounded-xl overflow-hidden grid grid-cols-3 gap-x-11 p-8">
         <div className="category-first inline-block ">
           <h2 className="font-semibold text-[18px] p-1 text-[#333] border-b">
             Category title

@@ -10,6 +10,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import BurgerIcon from "../../assets/burger.svg";
 
@@ -17,6 +18,7 @@ import BasketImage from "../../assets/trash.svg";
 import FavoriteImage from "../../assets/favorite.svg";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { useSelector } from "react-redux";
+import { Icon } from "@mui/material";
 
 export default function BurgerOffCanvas() {
   const [state, setState] = React.useState({
@@ -35,16 +37,15 @@ export default function BurgerOffCanvas() {
     ) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
 
   const list = (anchor) => (
     <Box
-      sx={{ width: "330px", padding: "18px 12px" }}
+      sx={{ width: "330px", padding: "38px 12px", position: "relative" }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
+      // onKeyDown={toggleDrawer(anchor, false)}
     >
       {/* <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
@@ -71,7 +72,9 @@ export default function BurgerOffCanvas() {
           </ListItem>
         ))}
       </List> */}
-
+      <div className="close-icon" onClick={toggleDrawer(anchor, false)}>
+        <CloseIcon className="absolute top-1 right-2" />
+      </div>
       <List sx={{ display: "grid", rowGap: "24px" }}>
         <ListItem disablePadding>
           <form className="w-full">
@@ -82,7 +85,10 @@ export default function BurgerOffCanvas() {
               Search
             </label>
             <div className="relative">
-              <button className="absolute inset-y-0 right-0 flex items-center rounded-r overflow-hidden px-3 bg-green-500 pointer-events-none">
+              <button
+                htmlFor="default-search"
+                className="absolute inset-y-0 right-0 flex items-center rounded-r overflow-hidden px-3 bg-green-500 pointer-events-none"
+              >
                 <svg
                   aria-hidden="true"
                   className="w-5 h-5 text-white"
