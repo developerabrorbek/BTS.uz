@@ -1,24 +1,16 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-// import Button from '@mui/material/Button';
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import BurgerIcon from "../../assets/burger.svg";
-
 import BasketImage from "../../assets/trash.svg";
 import FavoriteImage from "../../assets/favorite.svg";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { useSelector } from "react-redux";
-import { Icon } from "@mui/material";
 
 export default function BurgerOffCanvas() {
   const [state, setState] = React.useState({
@@ -44,34 +36,7 @@ export default function BurgerOffCanvas() {
     <Box
       sx={{ width: "330px", padding: "38px 12px", position: "relative" }}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
     >
-      {/* <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
       <div className="close-icon" onClick={toggleDrawer(anchor, false)}>
         <CloseIcon className="absolute top-1 right-2" />
       </div>
@@ -142,6 +107,7 @@ export default function BurgerOffCanvas() {
             <p className="text-[#6c6969]">Profile</p>
           </Link>
         </ListItem>
+        <Divider />
         <ListItem disablePadding>
           <Link to="/login" className="login text-black hover:text-green-500 ">
             Tizimga kirish
