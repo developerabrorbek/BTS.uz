@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper-button {
+  display: flex;
+  position: absolute;
+  top: calc(50% - 12px);
+  z-index: 10;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.slider__prev,
+.slider__next {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(75, 75, 75, 0.4);
+  top: calc(50% - 25px);
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 200px) {
+  .slider__prev {
+    display: none;
+    left: -10px;
+  }
+  .slider__next {
+    display: none;
+    right: -10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .slider__prev {
+    display: block;
+    left: 10px;
+  }
+  .slider__next {
+    display: block;
+    right: 10px;
+  }
+}
+
+.slider__prev::after {
+  content: "<";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  font-size: 22px;
+  /* transform: rotate(-45deg); */
+  z-index: 1400;
+  top: 10px;
+  left: 20px;
+  color: black;
+  box-sizing: border-box;
+}
+
+.slider__next::after {
+  content: ">";
+  position: absolute;
+  width: 10px;
+  z-index: 1400;
+  height: 10px;
+  font-size: 22px;
+  top: 10px;
+  left: 20px;
+  color: black;
+  box-sizing: border-box;
+}
+
+.slider__next.swiper-button-disabled,
+.slider__prev.swiper-button-disabled {
+  opacity: 0.6;
+  box-shadow: none;
+  cursor: not-allowed;
+}

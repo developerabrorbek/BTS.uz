@@ -79,7 +79,7 @@ const Header = () => {
           <div className="header py-2">
             <div className="header__inner flex gap-10 justify-between items-center">
               <Link to="/" className="site-logo leading-loose text-3xl">
-                <img src={Logo} alt="" className="" width={110} />
+                <img src={Logo} alt="Site logo" className="w-20 md:w-24 lg:w-28" width={110} />
               </Link>
               <div className="burger md:hidden">
                 <BurgerOffCanvas />

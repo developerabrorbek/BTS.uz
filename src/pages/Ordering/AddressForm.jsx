@@ -23,9 +23,9 @@ export default function AddressForm() {
       customerFullName:
         formData.get("fullname") || user.firstname + user.lastname,
       phoneNumber: formData.get("phoneNumber") || user.phoneNumber,
-      // address: `${formData.get("address")} ${formData.get(
-      //   "region"
-      // )} ${formData.get("city")}`,
+      address: `${formData.get("address")} ${formData.get(
+        "region"
+      )} ${formData.get("city")}`,
       latitude: location.lat,
       longitude: location.lng,
       productId: basketArr[0].id,
@@ -40,7 +40,7 @@ export default function AddressForm() {
           Toaster.notify(300, "Successfully added");
           console.log(data.data);
         })
-        .catch((err) => Toaster.notify(404, err.message));
+        .catch((err) => Toaster.notify(404, err.response.data.message));
     }
   }, [data, submit]);
 

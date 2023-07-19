@@ -9,7 +9,9 @@ const HeroBanner = () => {
   return (
     <>
       <div className="banner">
-        <div className="hero__inner ">
+        <div className="hero__inner relative">
+          <div className="slider__next swiper-button"></div>
+          <div className="slider__prev swiper-button"></div>
           <Swiper
             modules={[Autoplay, Pagination, Navigation]}
             spaceBetween={30}
@@ -21,7 +23,11 @@ const HeroBanner = () => {
             pagination={{
               clickable: true,
             }}
-            navigation={true}
+            navigation={{
+              nextEl: ".slider__next",
+              prevEl: ".slider__prev",
+              disabledClass: "swiper-button-disabled",
+            }}
             className="mySwiper w-full md:h-[400px]"
           >
             {[1, 2, 3, 4].map((item) => {
