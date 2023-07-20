@@ -5,7 +5,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import CloseIcon from "@mui/icons-material/Close";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BurgerIcon from "../../assets/burger.svg";
 import BasketImage from "../../assets/trash.svg";
 import FavoriteImage from "../../assets/favorite.svg";
@@ -17,6 +17,8 @@ export default function BurgerOffCanvas() {
   const [state, setState] = React.useState({
     right: false,
   });
+
+  const { pathname } = useLocation();
 
   const { basketCartTotal } = useSelector((res) => res.basket);
   const { favoriteCartTotal } = useSelector((res) => res.favorite);
@@ -122,7 +124,7 @@ export default function BurgerOffCanvas() {
             Ro&apos;yhatdan o&apos;tish
           </Link>
         </ListItem>
-        <ProfileAside/>
+        {pathname.includes("profile") ? <ProfileAside /> : ""}
       </List>
     </Box>
   );
