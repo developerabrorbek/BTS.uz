@@ -22,9 +22,16 @@ const ProfileDatum = () => {
 
   return (
     <div>
-      <Box sx={{ flexGrow: 1, padding: "16px", width: "75vw" }}>
-        <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
-          <Grid item xs={5}>
+      <Box
+        sx={{ flexGrow: 1, padding: "16px" }}
+        className=" justify-center lg:justify-between  w-full"
+      >
+        <Grid
+          container
+          spacing={3}
+          sx={{ justifyContent: "space-between", alignItems: "center" }}
+        >
+          <Grid item xs={12} sm={12} lg={6}>
             <Item>
               <div className="personal-datum">
                 <div className="head flex items-center justify-between border-b pb-4 mb-4">
@@ -34,19 +41,24 @@ const ProfileDatum = () => {
                       src="/static/images/avatar/1.jpg"
                       sx={{ bgcolor: deepOrange[500] }}
                     />
-                    <h3 className="font-bold text-[16px]">
+                    <h3 className="font-bold text-[14px] md:text-[16px]">
                       Shaxsiy ma&apos;lumotlarim
                     </h3>
                   </div>
-                  <Button variant="contained">O&apos;zgartirish</Button>
+                  <Button variant="contained" size="small">
+                    O&apos;zgartirish
+                  </Button>
                 </div>
                 <div className="body p-3 ">
                   <h3 className="name text-left mb-6 font-semibold text-[15px] text-[#4b4a4a]">
-                    {user.firstname} {user.lastname}
+                    {user?.firstname || "Abrorbek"}{" "}
+                    {user?.lastname || "Abdulxamidov"}
                   </h3>
                   <div className="number flex items-center gap-x-3 mb-2">
                     <span className="tel">Telefon:</span>
-                    <p className="text-black">{user.phoneNumber}</p>
+                    <p className="text-black">
+                      {user?.phoneNumber || "+998939386462"}
+                    </p>
                   </div>
                   <div className="role flex items-center gap-x-3">
                     <span>Role: </span>
@@ -56,7 +68,7 @@ const ProfileDatum = () => {
               </div>
             </Item>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={12} sm={12} lg={6}>
             <Item>
               <div className="personal-cards">
                 <div className="head flex items-center justify-between border-b pb-4 mb-4">
@@ -64,10 +76,12 @@ const ProfileDatum = () => {
                     <div className="card flex items-center justify-center p-2 border border-[#475569] rounded-full">
                       <CreditCardOutlinedIcon />
                     </div>
-                    <h3 className="font-bold text-[16px]">Mening kartalarim</h3>
+                    <h3 className="font-bold sm:text-[14px] md:text-[16px]">
+                      Mening kartalarim
+                    </h3>
                   </div>
-                  <Button variant="contained" color="success">
-                    Karta qo'shish
+                  <Button variant="contained" size="small" color="success">
+                    Karta qo&apos;shish
                   </Button>
                 </div>
                 <div className="body p-3 ">
@@ -98,12 +112,12 @@ const ProfileDatum = () => {
                     <div className="card flex items-center justify-center p-2 border border-[#475569] rounded-full">
                       <LocationOnOutlinedIcon />
                     </div>
-                    <h3 className="font-bold text-[16px]">
+                    <h3 className="font-bold text-[14px] md:text-[16px]">
                       Mening joylashuvim
                     </h3>
                   </div>
-                  <Button variant="contained" color="primary">
-                    Joyni o'zgartirish
+                  <Button variant="contained" size="small" color="primary">
+                    Joyni o&apos;zgartirish
                   </Button>
                 </div>
                 <div className="body p-3 ">

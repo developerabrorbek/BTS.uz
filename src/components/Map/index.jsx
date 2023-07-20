@@ -81,7 +81,7 @@ function MapWrapper() {
       zoom={12}
       scrollWheelZoom={false}
     >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"  className="z-30"/>
       <DraggableMarker />
     </MapContainer>
   );
