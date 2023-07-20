@@ -24,8 +24,8 @@ const ProfileInner = () => {
   return (
     <>
       <Header />
-      <div className="main bg-white mt-0 flex justify-between">
-        <div className="aside ">
+      <div className="main bg-white mt-0 md:flex md:justify-between">
+        <div className="aside hidden md:block">
           <ProfileAside />
         </div>
         <Body />

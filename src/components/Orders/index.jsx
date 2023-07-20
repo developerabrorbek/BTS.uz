@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -37,23 +38,26 @@ const rows = [
 ];
 
 const Orders = () => {
-  const isExist = Boolean(localStorage.getItem("user").orders);
+  const isExist = Boolean(localStorage.getItem("user")?.orders);
 
   if (!isExist) {
     return (
       <>
-        <div className="orders flex flex-col items-center justify-center gap-x-6  w-[75%]">
+        <div className="orders flex flex-col items-center justify-center gap-6 py-5  w-full">
           <h2 className="text-[24px] ">You don&apos;t have orders yet🤔😢</h2>
+          <Button variant="contained" size="small">
+            Go home
+          </Button>
         </div>
       </>
     );
   }
 
   return (
-    <div className="orders flex flex-col gap-y-6 pr-4 w-[75%] pt-4">
+    <div className="orders flex flex-col gap-y-6 p-4 pr-4 w-full pt-4">
       <h2 className="text-[32px] font-semibold">My Orders</h2>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <Table sx={{ minWidth: 400 }} aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Dessert (100g serving)</StyledTableCell>

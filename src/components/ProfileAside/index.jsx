@@ -16,12 +16,12 @@ const ProfileAside = () => {
   return (
     <>
       <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
-        <nav aria-label="main mailbox folders" className="hidden md:block">
+        <nav aria-label="main mailbox folders" className="md:w-[300px]">
           <List className="grid justify-between gap-3">
             <ListItem className="w-full ">
               <NavLink to="/profile" className="w-full">
                 <ListItemButton>
-                  <ListItemIcon className="flex md:items-center md:justify-center md:bg-[#e5e7eb] md:rounded-full w-4 md:w-12 py-1 mr-2 md:py-4 md:mr-3">
+                  <ListItemIcon className="flex items-center justify-center bg-[#e5e7eb] rounded-full w-12   py-4 mr-3">
                     <PersonOutlineRoundedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Mening ma'lumotlarim" />
@@ -70,55 +70,6 @@ const ProfileAside = () => {
               </NavLink>
             </ListItem>
           </List>
-          {/* <Grid
-            container
-            rowSpacing={2}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            sx={{alignItems : "center"}}
-          >
-            <Grid item xs={6}>
-              <NavLink to="/profile" className="flex items-center gap-x-1">
-                <PersonOutlineRoundedIcon />
-                <Typography>Mening ma&apos;lumotlarim</Typography>
-              </NavLink>
-            </Grid>
-            <Grid item xs={6}>
-              <NavLink
-                to="/profile/payments"
-                className="flex items-center gap-x-1"
-              >
-                <PaidOutlinedIcon />
-                <Typography>Mening to&apos;lovlarim</Typography>
-              </NavLink>
-            </Grid>
-            <Grid item xs={6}>
-              <NavLink
-                to="/profile/orders"
-                className="flex items-center gap-x-1"
-              >
-                <LocalShippingOutlinedIcon />
-                <Typography>Buyurtmalar</Typography>
-              </NavLink>
-            </Grid>
-            <Grid item xs={6}>
-              <NavLink
-                to="/profile/used-services"
-                className="flex items-center gap-x-1"
-              >
-                <RoofingOutlinedIcon />
-                <Typography>Foydalanilgan xizmatlar</Typography>
-              </NavLink>
-            </Grid>
-            <Grid item xs={12}>
-              <NavLink
-                to="/"
-                className="flex items-center justify-center gap-x-1"
-              >
-                <LogoutOutlinedIcon />
-                <Typography>Chiqish</Typography>
-              </NavLink>
-            </Grid>
-          </Grid> */}
         </nav>
       </Box>
     </>

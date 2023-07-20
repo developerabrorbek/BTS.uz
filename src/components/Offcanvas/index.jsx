@@ -11,6 +11,7 @@ import BasketImage from "../../assets/trash.svg";
 import FavoriteImage from "../../assets/favorite.svg";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { useSelector } from "react-redux";
+import ProfileAside from "../ProfileAside";
 
 export default function BurgerOffCanvas() {
   const [state, setState] = React.useState({
@@ -121,6 +122,7 @@ export default function BurgerOffCanvas() {
             Ro&apos;yhatdan o&apos;tish
           </Link>
         </ListItem>
+        <ProfileAside/>
       </List>
     </Box>
   );

@@ -36,7 +36,7 @@ const Profile = () => {
       <>
         <div className="main  bg-white mt-0 ">
           <div className="container mx-auto flex justify-center md:justify-between">
-            <div className="aside">
+            <div className="aside hidden md:block">
               <ProfileAside />
             </div>
             <ProfileDatum />
