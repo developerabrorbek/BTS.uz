@@ -9,7 +9,8 @@ const basketState = {
 
 const favoriteState = {
   favoriteArr: JSON.parse(localStorage.getItem("favoriteArr")) || [],
-  favoriteCartTotal: 0,
+  favoriteCartTotal:
+    JSON.parse(localStorage.getItem("favoriteTotalCount")) || 0,
 };
 
 export const basketSlice = createSlice({
