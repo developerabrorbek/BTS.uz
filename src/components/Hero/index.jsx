@@ -21,7 +21,7 @@ const Categories = (props) => {
           </h2>
           <ul className="list-items flex flex-col gap-y-2 mt-2 transition-all delay-500">
             <li className="list-item hover:underline">
-              <Link to="#">First product</Link>
+              <Link to="/service-ordering/5">First product</Link>
             </li>
             <li className="list-item hover:underline">
               <Link to="#">second product</Link>

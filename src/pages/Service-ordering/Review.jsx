@@ -39,28 +39,17 @@ const payments = [
   { name: "Expiry date", detail: "04/2024" },
 ];
 
-export default function Review() {
+export default function Review({ order }) {
   const { basketArr, basketCartTotalAmount } = useSelector((res) => res.basket);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Order summary
+        Service Order summary
       </Typography>
       <List disablePadding>
-        {basketArr.map((item) => {
-          return (
-            <ListItem sx={{ py: 1, px: 0 }} key={item.name}>
-              <OrderCard product={item} key={item.id} />
-            </ListItem>
-          );
-        })}
-
-        <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            ${basketCartTotalAmount}
-          </Typography>
-        </ListItem>
+        <Typography variant="h5">
+          {order?.name ? order.name : "Xolodilnik tuzatish"}
+        </Typography>
       </List>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -68,7 +57,7 @@ export default function Review() {
             Shipping
           </Typography>
           <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(", ")}</Typography>
+          <Typography gutterBottom>{order?.address?.join(", ")}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>

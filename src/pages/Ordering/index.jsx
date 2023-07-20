@@ -197,24 +197,24 @@ import Footer from "../../components/Footer";
 
 const steps = ["Shipping address", "Review your order"];
 
-function getStepContent(step) {
-	switch (step) {
-		case 0:
-			return <AddressForm />;
-		case 1:
-			return <Review />;
-		// case 2:
-		// 	return <PaymentForm />;
-		default:
-			throw new Error("Unknown step");
-	}
-}
+// function getStepContent(step) {
+// 	switch (step) {
+// 		case 0:
+// 			return <AddressForm setOrder={setOrder}/>;
+// 		case 1:
+// 			return <Review />;
+// 		// case 2:
+// 		// 	return <PaymentForm />;
+// 		default:
+// 			throw new Error("Unknown step");
+// 	}
+// }
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Order() {
 	const [activeStep, setActiveStep] = React.useState(0);
+	const [order, setOrder] = React.useState({})
 
 	const handleNext = () => {
 		setActiveStep(activeStep + 1);
@@ -260,7 +260,7 @@ export default function Order() {
 							</React.Fragment>
 						) : (
 							<React.Fragment>
-								{getStepContent(activeStep)}
+								{activeStep == 0 ? <AddressForm setOrder={setOrder}/> : <Review order={order}/>}
 								<Box sx={{ display: "flex", justifyContent: "flex-end" }}>
 									{activeStep !== 0 && (
 										<Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>

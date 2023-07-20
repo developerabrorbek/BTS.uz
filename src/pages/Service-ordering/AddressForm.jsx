@@ -9,7 +9,7 @@ import MapWrapper from "../../components/Map";
 import axios from "../../configs/axios.config";
 import Toaster from "../../components/Toaster";
 
-export default function AddressForm({ setOrder }) {
+export default function AddressForm({ setOrder, serviceId }) {
   const [data, setData] = React.useState(null);
   const [submit, setSubmit] = React.useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -28,14 +28,14 @@ export default function AddressForm({ setOrder }) {
       )} ${formData.get("city")}`,
       latitude: location.lat,
       longitude: location.lng,
-      productId: basketArr[0].id,
+      technicalServiceId: serviceId,
     });
   };
 
   React.useEffect(() => {
     if (submit) {
       axios
-        .post("order-for-product/add", data)
+        .post("order-for-service/add", data)
         .then((data) => {
           Toaster.notify(300, "Successfully added");
           setOrder(data.data);
@@ -48,7 +48,7 @@ export default function AddressForm({ setOrder }) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        Servecing address
       </Typography>
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
         <Grid container spacing={3}>

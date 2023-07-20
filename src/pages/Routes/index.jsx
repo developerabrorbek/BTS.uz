@@ -15,6 +15,7 @@ import Signup from "../../components/Signup";
 import Forgot from "../../components/Emailcode";
 import Profile from "../Profile";
 import ProfileInner from "../ProfileInner";
+import OrderService from "../Service-ordering";
 
 const UserRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const UserRoutes = () => {
         <Route element={<Home />} path="/" />
         <Route element={<Contacts />} path="/contacts" />
         <Route element={<Order />} path="/ordering" />
+        <Route element={<OrderService />} path="/service-ordering/:id" />
         <Route element={<Ordered />} path="/ordered" />
         <Route element={<Favorites />} path="/selected" />
         <Route element={<Products />} path="/products/:category" />
