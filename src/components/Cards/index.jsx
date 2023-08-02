@@ -74,6 +74,7 @@ export const ProductCard = ({ product }) => {
   return (
     <div
       onClick={(e) => {
+        console.log(product);
         if (e.target.matches(".trash") || e.target.matches(".favorite")) {
           dispatch(removeFavoriteProduct(product));
         } else toSingleProduct(product.id, e);
@@ -82,7 +83,7 @@ export const ProductCard = ({ product }) => {
     >
       <div className="card-images relative flex justify-center mb-6">
         <img
-          src={product.image}
+          src={product?.attach[0]?.url}
           alt="Product image"
           className="h-[200px] transition-all hover:scale-105"
         />
@@ -96,9 +97,11 @@ export const ProductCard = ({ product }) => {
         </div>
       </div>
       <h4 className="card-title mb-2 h-[48px] overflow-hidden font-light text-[#575656] text-ellipsis">
-        {product.title}
+        {product.name}
       </h4>
-      <p className="price font-bold text-[20px]">{product.price} $</p>
+      <p className="price font-bold text-[20px]">
+        {(product.price / 1100000).toFixed()} $
+      </p>
     </div>
   );
 };
@@ -107,6 +110,7 @@ export const SingleProductCard = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const favoriteIcon = useRef(null);
+  const [imageCount, setImageCount] = useState(0);
 
   const { pathname } = useLocation();
   let content;
@@ -169,24 +173,25 @@ export const SingleProductCard = ({ product }) => {
     >
       <div className="card-images relative flex justify-center mb-6">
         <span className="absolute flex flex-col -left-4 gap-2 z-50">
-          <img
-            src={product?.image}
-            alt="Product image"
-            className="h-[65px]  transition-all hover:scale-105"
-          />
-          <img
-            src={product?.image}
-            alt="Product image"
-            className="h-[65px] transition-all hover:scale-105"
-          />
-          <img
-            src={product?.image}
-            alt="Product image"
-            className="h-[65px] transition-all hover:scale-105"
-          />
+          {product?.attach.map((img, i) => {
+            return (
+              <>
+                <img
+                  onClick={() => setImageCount(i)}
+                  src={img.url}
+                  alt="Product image"
+                  className={`h-[65px]  transition-all hover:scale-105 w-16 ${
+                    imageCount == i
+                      ? " rounded-lg overflow-hidden border-2 border-blue-500"
+                      : ""
+                  }`}
+                />
+              </>
+            );
+          })}
         </span>
         <img
-          src={product.image}
+          src={product?.attach[imageCount]?.url}
           alt="Product image"
           className="h-[200px] transition-all hover:scale-105"
         />
@@ -200,7 +205,7 @@ export const SingleProductCard = ({ product }) => {
         </div>
       </div>
       <h4 className="card-title mb-2 h-[48px] overflow-hidden font-light text-[#575656] text-ellipsis">
-        {product.title}
+        {product.name}
       </h4>
       <p className="price font-bold text-[20px]">{product.price} $</p>
     </div>
@@ -215,14 +220,14 @@ export const SingleCard = ({ product }) => {
     >
       <div className="card-images relative mb-4">
         <img
-          src={product.image}
+          src={product?.attach[0]?.url}
           alt="Product image"
           className=" h-[200px] transition-all hover:scale-105"
         />
       </div>
       <div className="card-body flex justify-between items-center">
         <h4 className="card-title text-center h-[48px] overflow-hidden">
-          {product.title}
+          {product.name}
         </h4>
       </div>
     </Link>
@@ -244,13 +249,17 @@ export const BasketCard = ({ product }) => {
         onClick={() => removeCartHandler(product)}
       />
       <div className="card-body flex items-center gap-x-4 mb-5">
-        <img src={product.image} alt="image" className="w-[70px] h-[76px]" />
+        <img
+          src={product.attach[0].url}
+          alt="image"
+          className="w-[70px] h-[76px]"
+        />
         <div className="card-body__text">
           <h4 className="font-medium text-[15px] leading-6 text-[#1C1C27]">
-            {product.title}
+            {product.name}
           </h4>
           <p className="font-semibold text-[15px] leading-6 text-[#1C1C27]">
-            {product.price} $
+            {(product.price / 1100000).toFixed()} $
           </p>
         </div>
       </div>
@@ -274,7 +283,7 @@ export const BasketCard = ({ product }) => {
 
         <div className="total">
           <p className="font-semibold text-[15px]  leading-6 text-[#1C1C27]">
-            {product.productCount * product.price} $
+            {product.productCount * (product.price / 1100000).toFixed()} $
           </p>
         </div>
       </div>
@@ -286,15 +295,15 @@ export const OrderCard = ({ product }) => {
   return (
     <div className="card w-full flex items-center justify-between">
       <div className="body flex items-center gap-x-3">
-        <img src={product.image} alt="image" className="w-10 h-10" />
+        <img src={product.attach[0].url} alt="image" className="w-10 h-10" />
         <div className="text flex flex-col ">
           <h4 className=" text-[14px] font-semibold leading-4 max-w-[200px] text-ellipsis">
-            {product.productCount} x {product.title}
+            {product.productCount} x {product.name}
           </h4>
         </div>
       </div>
       <p className="all-price font-bold text-[15px] leading-5">
-        {product.price * product.productCount} $
+        {(product.price / 1100000).toFixed() * product.productCount} $
       </p>
     </div>
   );

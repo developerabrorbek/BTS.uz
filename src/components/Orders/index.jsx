@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
+import axios from "../../configs/axios.config";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -39,6 +40,12 @@ const rows = [
 
 const Orders = () => {
   const isExist = Boolean(localStorage.getItem("user")?.orders);
+
+  axios
+    .get("order-for-product/my", {
+      headers: `Bearer ${localStorage.getItem("token")}`,
+    })
+    .then((data) => console.log(data));
 
   if (!isExist) {
     return (

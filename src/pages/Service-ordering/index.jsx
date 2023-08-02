@@ -14,6 +14,7 @@ import Review from "./Review";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useParams } from "react-router-dom";
+import axios from "../../configs/axios.config";
 
 const steps = ["Service address", "Review your order"];
 
@@ -24,6 +25,11 @@ export default function OrderService() {
   const [order, setOrder] = React.useState({});
 
   const { id } = useParams();
+
+  axios.get(`category/get/all`).then((data) => {
+    const foundedCategory = data.data.body.find((e) => e.id == id);
+    setServiceName(foundedCategory.name);
+  });
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);

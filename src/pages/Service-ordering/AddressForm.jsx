@@ -15,6 +15,8 @@ export default function AddressForm({ setOrder, serviceId }) {
   const user = JSON.parse(localStorage.getItem("user"));
   const location = JSON.parse(localStorage.getItem("location"));
   const basketArr = JSON.parse(localStorage.getItem("basketArr"));
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

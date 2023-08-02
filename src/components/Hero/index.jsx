@@ -3,50 +3,61 @@ import { useGetCategoriesQuery } from "../../redux/API";
 import { useEffect, useState } from "react";
 import HeroBanner from "./banner";
 
-// import axios from "../../configs/axios.config";
+import axios from "../../configs/axios.config";
+import Toaster from "../Toaster";
+
+const getCategory = async (id, setCategory) => {
+  axios
+    .get(`category/get/all-tree`)
+    .then((data) => {
+      const foundedCategory = data.data.body.find((e) => e.id == id);
+      setCategory(foundedCategory);
+    })
+    .catch((err) => Toaster.notify(404, err.message));
+};
 
 const Categories = (props) => {
-  // useEffect(() => {
-  //   axios
-  //     .get(`category/get/${props.id}`)
-  //     .then((data) => console.log(data.data))
-  //     .catch((err) => console.log(err));
-  // });
+  const [category, setCategory] = useState(null);
+  const id = props.id;
+  useEffect(() => {
+    getCategory(id, setCategory);
+  }, []);
+
+  console.log(category);
   return (
     <>
       <div className="category-wrapper relative z-50 bg-white rounded-xl overflow-hidden grid grid-cols-3 gap-x-11 p-8">
-        <div className="category-first inline-block ">
-          <h2 className="font-semibold text-[18px] p-1 text-[#333] border-b">
-            Category title
-          </h2>
-          <ul className="list-items flex flex-col gap-y-2 mt-2 transition-all delay-500">
-            <li className="list-item hover:underline">
-              <Link to="/service-ordering/5">First product</Link>
-            </li>
-            <li className="list-item hover:underline">
-              <Link to="#">second product</Link>
-            </li>
-            <li className="list-item hover:underline">
-              <Link to="#">third product</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="category-second">
-          <h2 className="font-semibold text-[18px] text-[#333] border-b p-1">
-            Category title
-          </h2>
-          <ul className="list-items flex flex-col gap-y-2 mt-2 transition-all delay-500">
-            <li className="list-item hover:underline">
-              <Link to="#">First product</Link>
-            </li>
-            <li className="list-item hover:underline">
-              <Link to="#">second product</Link>
-            </li>
-            <li className="list-item hover:underline">
-              <Link to="#">third product</Link>
-            </li>
-          </ul>
-        </div>
+        {category?.children &&
+          category.children.map((c) => {
+            return (
+              <>
+                <div className="category-first inline-block ">
+                  <h2 className="font-semibold text-[18px] p-1 text-[#333] border-b">
+                    {c.name}
+                  </h2>
+                  <ul className="list-items flex flex-col gap-y-2 mt-2 transition-all delay-500">
+                    {c?.children.length ? (
+                      c.children.map((child) => {
+                        return (
+                          <li className="list-item hover:underline">
+                            <Link to={`/service-ordering/${child.id}`}>
+                              {child.name}
+                            </Link>
+                          </li>
+                        );
+                      })
+                    ) : (
+                      <>
+                        <li className="list-item hover:underline">
+                          <Link to={`/service-ordering/${c.id}`}>{c.name}</Link>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+              </>
+            );
+          })}
       </div>
     </>
   );
@@ -70,19 +81,21 @@ const Hero = () => {
             Categories
           </h2>
           <ul className="categories flex flex-col gap-2 py-3">
-            {categories?.length &&
-              categories.map((category, index) => {
-                return (
-                  <li
-                    key={index}
-                    onMouseOver={(e) => handleAside(e, category.id)}
-                    onMouseLeave={() => setOpen(false)}
-                    className="category transition-all hover:shadow-custom cursor-pointer py-2 px-6"
-                  >
-                    <p>{category}</p>
-                  </li>
-                );
-              })}
+            {categories?.body?.length &&
+              categories.body
+                .filter((c) => c.type == "SERVICE_CATEGORY")
+                .map((category, index) => {
+                  return (
+                    <li
+                      key={category.id}
+                      onMouseOver={(e) => handleAside(e, category.id)}
+                      onMouseLeave={() => setOpen(false)}
+                      className="category transition-all hover:shadow-custom cursor-pointer py-2 px-6"
+                    >
+                      <p>{category.name}</p>
+                    </li>
+                  );
+                })}
           </ul>
         </div>
         {open ? (

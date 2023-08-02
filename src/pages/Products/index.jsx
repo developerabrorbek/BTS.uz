@@ -6,12 +6,12 @@ import Loading from "../../components/Loading";
 import { useGetProductsByCategoryQuery } from "../../redux/API";
 import Error from "../Error";
 const Products = () => {
-  const {category} = useParams();
+  const { id } = useParams();
   const {
     data: products,
     isLoading,
     isError,
-  } = useGetProductsByCategoryQuery(category);
+  } = useGetProductsByCategoryQuery(id);
   if (isLoading) return <Loading />;
   if (isError) return <Error />;
   return (
@@ -20,8 +20,8 @@ const Products = () => {
       <section className="products">
         <div className="container mx-auto px-6 max-w-[1110px]">
           <div className="products__inner grid items-center gap-y-6 md:gap-x-6 justify-center md:grid-cols-2 lg:grid-cols-3">
-            {products.map(product=>{
-                return <ProductCard product={product} key={product.id}/>
+            {products.length && products.map((product) => {
+              return <ProductCard product={product} key={product.id} />;
             })}
           </div>
         </div>

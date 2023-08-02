@@ -16,9 +16,10 @@ import SmallBanners from "../../components/SmallBanners";
 
 const Home = () => {
   const { data: products, isLoading, isError } = useGetProductsQuery();
-  const { data: womenClothing } =
-    useGetProductsByCategoryQuery("women's clothing");
-  const { data: menClothing } = useGetProductsByCategoryQuery("men's clothing");
+
+  // const { data: womenClothing } = useGetProductsByCategoryQuery(2);
+  // const { data: menClothing } = useGetProductsByCategoryQuery(1);
+  console.log(products);
 
   if (isLoading) return <Loading />;
   if (isError) return <Error />;
@@ -43,11 +44,11 @@ const Home = () => {
             slidesPerView="auto"
             spaceBetween={30}
           >
-            {products &&
-              products.map((product) => {
+            {products.body &&
+              products.body.map((product) => {
                 return (
-                  <SwiperSlide key={product.id} className="ms-0 w-[220px]">
-                    <SingleCard product={product} />
+                  <SwiperSlide key={product.id} className="ms-0 w-[260px]">
+                    <ProductCard product={product} />
                   </SwiperSlide>
                 );
               })}
@@ -55,7 +56,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="women-products mt-6">
+      {/* <section className="women-products mt-6">
         <div className="container mx-auto px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
             Women&apos;s clothing
@@ -77,9 +78,9 @@ const Home = () => {
               })}
           </Swiper>
         </div>
-      </section>
+      </section> */}
 
-      <section className="women-products mt-6">
+      {/* <section className="women-products mt-6">
         <div className="container mx-auto px-6 max-w-[1340px]">
           <h2 className="text-[24px] font-semibold leading-6 text-[#838383] mb-5">
             Men&apos;s clothing
@@ -101,7 +102,7 @@ const Home = () => {
               })}
           </Swiper>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </>

@@ -3,7 +3,10 @@ import "swiper/css/bundle";
 import { Autoplay } from "swiper";
 import { Link } from "react-router-dom";
 import Phone from "../../assets/phone.jpg";
+import { useGetCategoriesQuery } from "../../redux/API";
 const Intro = () => {
+  const { data: categories } = useGetCategoriesQuery();
+
   const products = [
     "phones",
     "computers",
@@ -13,6 +16,7 @@ const Intro = () => {
     "appliance",
     "sports",
   ];
+
   return (
     <>
       <section className="hero mt-6 mb-[35px] lg:mb-11  relative">
@@ -25,23 +29,29 @@ const Intro = () => {
               slidesPerView="auto"
               spaceBetween={30}
             >
-              {products &&
-                products.map((product) => {
-                  return (
-                    <SwiperSlide
-                      key={product.id}
-                      className="w-[200px] md:w-[256px] mr-6"
-                    >
-                      <Link
-                        to={product}
-                        className="flex items-center gap-x-7 py-4 px-2 md:py-3 shadow-xl bg-white rounded-2xl"
+              {categories.body &&
+                categories.body
+                  .filter((e) => e.type == "PRODUCT_CATEGORY")
+                  .map((category) => {
+                    return (
+                      <SwiperSlide
+                        key={category.id}
+                        className="w-[200px] md:w-[256px] mr-6"
                       >
-                        <img src={Phone} alt="Image" className="w-14 md:w-20" />
-                        <h4 className="capitalize">{product}</h4>
-                      </Link>
-                    </SwiperSlide>
-                  );
-                })}
+                        <Link
+                          // to={`/products/${category.id}`}
+                          className="flex items-center gap-x-7 py-4 px-2 md:py-3 shadow-xl bg-white rounded-2xl"
+                        >
+                          <img
+                            src={category.attach.url}
+                            alt="Image"
+                            className="w-14 md:w-20 h-14"
+                          />
+                          <h4 className="capitalize">{category.name}</h4>
+                        </Link>
+                      </SwiperSlide>
+                    );
+                  })}
             </Swiper>
           </div>
         </div>

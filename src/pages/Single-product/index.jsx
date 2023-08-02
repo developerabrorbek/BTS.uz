@@ -25,6 +25,7 @@ const SingleProduct = () => {
 	const { id } = useParams();
 	const [width, setWidth] = useState(window.innerWidth);
 	const { data: product, isLoading, isError } = useGetSingleProductQuery(id);
+	
 	if (isLoading) return <Loading />;
 	if (isError) return <Error />;
 	window.addEventListener("resize", () => {
@@ -80,12 +81,12 @@ const SingleProduct = () => {
 			<section className="single-product">
 				<div className="container mx-auto px-3 max-w-[1110px]">
 					<h2 className="font-semibold text-[17px] leading-[21px] text-[#838383] uppercase mb-4 ps-2">
-						{product.category}
+						{product.body.category}
 					</h2>
 
 					<div className="product__inner grid gap-y-6 md:grid-cols-2 gap-x-4">
 						<div className="product">
-							<SingleProductCard product={product} />
+							<SingleProductCard product={product.body} />
 						</div>
 						<div className="description rounded-[15px] overflow-hidden">
 							<div className="description-body rounded-[15px] relative bg-[#3c2121] z-20 shadow-xl  ">
@@ -98,14 +99,14 @@ const SingleProduct = () => {
 											<Typography>Description</Typography>
 										</AccordionSummary>
 										<AccordionDetails>
-											<Typography>{product.description}</Typography>
+											<Typography>{product.body.description}</Typography>
 										</AccordionDetails>
 									</Accordion>
 							</div>
 
 							<div className="actions mt-6 flex flex-col gap-y-4">
 								<button
-									onClick={() => addtoBasketHandler(product)}
+									onClick={() => addtoBasketHandler(product.body)}
 									className="bg-[#25e05d] flex items-center justify-center gap-x-4 shadow rounded-[10px] text-white text-center py-[13px] w-[255px]"
 								>
 									<img src={basket} alt="Basket" />

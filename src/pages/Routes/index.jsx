@@ -27,7 +27,7 @@ const UserRoutes = () => {
         <Route element={<OrderService />} path="/service-ordering/:id" />
         <Route element={<Ordered />} path="/ordered" />
         <Route element={<Favorites />} path="/selected" />
-        <Route element={<Products />} path="/products/:category" />
+        <Route element={<Products />} path="/products/:id" />
         <Route element={<ServiceRequirements />} path="/service-requirements" />
         <Route element={<Basket />} path="/basket" />
         <Route element={<SingleProduct />} path="/single-product/:id" />
